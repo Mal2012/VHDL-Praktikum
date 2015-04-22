@@ -15,7 +15,7 @@
 
   <!--                                                          -->
 
-  <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
 
   <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
 
@@ -94,6 +94,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="top_entity.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="top_entity.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="top_entity.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
@@ -130,6 +131,10 @@
     <transform xil_pn:end_ts="1429710633" xil_pn:in_ck="85220408511105947" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-7501200925173066920" xil_pn:start_ts="1429710631">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TOP_ENTITY.vhf"/>
     </transform>
     <transform xil_pn:end_ts="1429710591" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="7575757860005311752" xil_pn:start_ts="1429710591">
@@ -178,7 +183,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1429710448" xil_pn:in_ck="85220408511105947" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="4440365332930366426" xil_pn:start_ts="1429710446">
+    <transform xil_pn:end_ts="1429717053" xil_pn:in_ck="85220408511105947" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="4440365332930366426" xil_pn:start_ts="1429717050">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TOP_ENTITY.vhf"/>
@@ -203,7 +208,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1429714389" xil_pn:in_ck="3302155340006352927" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-9051393458784028255" xil_pn:start_ts="1429714382">
+    <transform xil_pn:end_ts="1429717068" xil_pn:in_ck="3302155340006352927" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-9051393458784028255" xil_pn:start_ts="1429717053">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -226,7 +231,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1429714394" xil_pn:in_ck="-2109824356998379850" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="5080897600615935731" xil_pn:start_ts="1429714389">
+    <transform xil_pn:end_ts="1429717808" xil_pn:in_ck="-2109824356998379850" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="5080897600615935731" xil_pn:start_ts="1429717803">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TOP_ENTITY.bld"/>
@@ -235,12 +240,9 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1429714400" xil_pn:in_ck="-2109824356998379849" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3180699873896808002" xil_pn:start_ts="1429714394">
+    <transform xil_pn:end_ts="1429717818" xil_pn:in_ck="-2109824356998379849" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="-3180699873896808002" xil_pn:start_ts="1429717808">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TOP_ENTITY.pcf"/>
       <outfile xil_pn:name="TOP_ENTITY_map.map"/>
       <outfile xil_pn:name="TOP_ENTITY_map.mrp"/>
@@ -251,7 +253,7 @@
       <outfile xil_pn:name="TOP_ENTITY_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1429714411" xil_pn:in_ck="-5538603972673382064" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1429714400">
+    <transform xil_pn:end_ts="1429717837" xil_pn:in_ck="-5538603972673382064" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1429717818">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TOP_ENTITY.ncd"/>
@@ -265,7 +267,7 @@
       <outfile xil_pn:name="TOP_ENTITY_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1429714417" xil_pn:in_ck="85220408511100498" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1429714411">
+    <transform xil_pn:end_ts="1429717852" xil_pn:in_ck="85220408511100498" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1429717837">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TOP_ENTITY.ut"/>
@@ -273,14 +275,17 @@
       <outfile xil_pn:name="top_entity.bgn"/>
       <outfile xil_pn:name="top_entity.bit"/>
       <outfile xil_pn:name="top_entity.drc"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
     <transform xil_pn:end_ts="1429714418" xil_pn:in_ck="8586972441246003516" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1429714417">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1429714411" xil_pn:in_ck="-2109824356998379981" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1429714407">
+    <transform xil_pn:end_ts="1429717837" xil_pn:in_ck="-2109824356998379981" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1429717829">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="TOP_ENTITY.twr"/>

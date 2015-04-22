@@ -1,17 +1,17 @@
 --------------------------------------------------------------------------------
--- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --------------------------------------------------------------------------------
 --   ____  ____ 
 --  /   /\/   / 
 -- /___/  \  /    Vendor: Xilinx 
--- \   \   \/     Version : 14.4
+-- \   \   \/     Version : 14.7
 --  \   \         Application : sch2hdl
 --  /   /         Filename : TOP_ENTITY.vhf
--- /___/   /\     Timestamp : 04/22/2015 15:47:27
+-- /___/   /\     Timestamp : 04/22/2015 17:37:32
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
---Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl E:/Namisslo_Koegler/HDL_Praktikum/TOP_ENTITY.vhf -w E:/Namisslo_Koegler/HDL_Praktikum/TOP_ENTITY.sch
+--Command: sch2hdl -intstyle ise -family spartan6 -flat -suppress -vhdl C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/TOP_ENTITY.vhf -w C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/TOP_ENTITY.sch
 --Design Name: TOP_ENTITY
 --Device: spartan6
 --Purpose:
@@ -45,15 +45,18 @@ architecture BEHAVIORAL of TOP_ENTITY is
    signal XLXN_15       : std_logic_vector (4 downto 0);
    signal clk_400_DUMMY : std_logic;
    component CONTROL_UNIT
-      port ( CLK_I    : in    std_logic; 
-             RESET_I  : in    std_logic; 
-             BCD_01_O : out   std_logic_vector (4 downto 0); 
-             BCD_02_O : out   std_logic_vector (4 downto 0); 
-             BCD_03_O : out   std_logic_vector (4 downto 0); 
-             BCD_04_O : out   std_logic_vector (4 downto 0); 
-             LED_O    : out   std_logic_vector (7 downto 0); 
-             DPS_O    : out   std_logic_vector (3 downto 0); 
-             SELECT_I : in    std_logic_vector (4 downto 0));
+      port ( CLK_I     : in    std_logic; 
+             RESET_I   : in    std_logic; 
+             SELECT_I  : in    std_logic_vector (4 downto 0); 
+             BCD_01_O  : out   std_logic_vector (4 downto 0); 
+             BCD_02_O  : out   std_logic_vector (4 downto 0); 
+             BCD_03_O  : out   std_logic_vector (4 downto 0); 
+             BCD_04_O  : out   std_logic_vector (4 downto 0); 
+             LED_O     : out   std_logic_vector (7 downto 0); 
+             DPS_O     : out   std_logic_vector (3 downto 0); 
+             PLAY_O    : out   std_logic; 
+             REC_O     : out   std_logic; 
+             REVERSE_O : out   std_logic);
    end component;
    
    component FREQ_DIVIDER
@@ -96,7 +99,10 @@ begin
                 BCD_03_O(4 downto 0)=>XLXN_3(4 downto 0),
                 BCD_04_O(4 downto 0)=>XLXN_4(4 downto 0),
                 DPS_O(3 downto 0)=>XLXN_6(3 downto 0),
-                LED_O(7 downto 0)=>Led(7 downto 0));
+                LED_O(7 downto 0)=>Led(7 downto 0),
+                PLAY_O=>open,
+                REC_O=>open,
+                REVERSE_O=>open);
    
    XLXI_2 : FREQ_DIVIDER
       port map (CLK_I=>clk_I,

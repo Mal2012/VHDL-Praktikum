@@ -3,6 +3,9 @@ CLK_I
 RESET_I
 =SELECT_I[4:0]=
 [Outputs]
+PLAY_O
+REC_O
+REVERSE_O
 =BCD_01_O[4:0]=
 =BCD_02_O[4:0]=
 =BCD_03_O[4:0]=
