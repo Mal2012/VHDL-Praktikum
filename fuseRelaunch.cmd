@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE_TEST_isim_beh.exe" -prj "E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE_TEST_beh.prj" "work.DEBOUNCE_TEST" 

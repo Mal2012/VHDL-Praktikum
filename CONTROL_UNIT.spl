@@ -1,0 +1,12 @@
+[Inputs]
+CLK_I
+RESET_I
+=SELECT_I[4:0]=
+[Outputs]
+=BCD_01_O[4:0]=
+=BCD_02_O[4:0]=
+=BCD_03_O[4:0]=
+=BCD_04_O[4:0]=
+=LED_O[7:0]=
+=DPS_O[3:0]=
+[BiDir]

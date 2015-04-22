@@ -1,0 +1,7 @@
+[Inputs]
+CLK_I
+RESET_I
+[Outputs]
+CLK_400_O
+CLK_48_O
+[BiDir]

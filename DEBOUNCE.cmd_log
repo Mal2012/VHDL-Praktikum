@@ -1,0 +1,21 @@
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -prj HDL_Praktikum -o E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.vhi -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work DEBOUNCE.vhd 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 
+vhdtdtfi -lib work DEBOUNCE.vhd -prj HDL_Praktikum -o DEBOUNCE.spl -module DEBOUNCE -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 DEBOUNCE.spl E:/Namisslo_Koegler/HDL_Praktikum/DEBOUNCE.sym 

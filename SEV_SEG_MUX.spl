@@ -1,0 +1,14 @@
+[Inputs]
+CLK_I
+CLK_400_I
+RESET_I
+=BCD_01_I[4:0]=
+=BCD_02_I[4:0]=
+=BCD_03_I[4:0]=
+=BCD_04_I[4:0]=
+=DPS_I[3:0]=
+[Outputs]
+DP_O
+=ANODE_O[3:0]=
+=DISPLAY_O[6:0]=
+[BiDir]

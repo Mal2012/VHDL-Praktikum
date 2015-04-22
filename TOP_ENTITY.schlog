@@ -1,0 +1,2 @@
+select figure at 1645 1824 8 -branches -sn=1
+select all in 1600 1824 1645 1869 -branches -enclosed -sn=1

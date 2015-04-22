@@ -1,0 +1,8 @@
+[Inputs]
+CLK
+CLK_400
+RESET
+=BUTTON_I[4:0]=
+[Outputs]
+=BUTTON_O[4:0]=
+[BiDir]
