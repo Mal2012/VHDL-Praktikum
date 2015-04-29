@@ -36,7 +36,9 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 	signal DPS_I : std_logic_vector(3 downto 0);
 	signal VOL : std_logic_vector(7 downto 0);
 	signal SPEED_I : std_logic_vector(7 downto 0);
-
+	signal PLAY_I : std_logic;
+	signal REVERSE_I : std_logic;
+	signal REC_I : std_logic;
 	begin
 	PROC_STATE_MACHINE : process(CLK_I)
 		begin
@@ -51,14 +53,15 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 				DPS_I <= "1111";
 				VOL <= "00000000";
 				SPEED_I <= "00000000";
-				REVERSE_O <= '0';
-				PLAY_O <= '0';
-				REC_O <= '0';
+				REC_I <= '0';
+				PLAY_I <= '0';
+				REVERSE_I <= '0';
 
 			else
-			LED_I <= "00000000";
+			
 				case CURRENT_STATE is
 					when IDLE =>
+						LED_I <= "00000000";
 						BCD_01_I <= "01110";
 						BCD_02_I <= "11111";
 						BCD_03_I <= "01101";
@@ -77,8 +80,8 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 						BCD_04_I <= "10100";
 						DPS_I <= "1111";
 					if (SELECT_I = "00001") then
-							REC_O <= '1';
-							LED_I <= "00000010";
+							REC_I <= NOT REC_I;
+							LED_I(1) <= NOT LED_I(1);
 						end if;
 						if(SELECT_I = "10000") then
 							CURRENT_STATE <= PLAY;
@@ -93,8 +96,8 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 						BCD_04_I <= "10101";
 						DPS_I <= "1111";
 						if (SELECT_I = "00001") then
-							PLAY_O <= '1';
-							LED_I <= "00000100";
+							PLAY_I <= NOT PLAY_I;
+							LED_I(2) <= NOT LED_I(2);
 						end if;
 						
 						if(SELECT_I = "10000") then
@@ -104,6 +107,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 							CURRENT_STATE <= REC;
 						end if;
 					when VOLUME =>
+						LED_I <= "00000000";
 						BCD_01_I <= '0' & VOL(3 downto 0);
 						BCD_02_I <= '0' & VOL(7 downto 4);
 						BCD_03_I <= "10001";
@@ -131,8 +135,11 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 						BCD_04_I <= "10100";
 						DPS_I <= "1111";
 						if (SELECT_I = "00001") then
-							REVERSE_O <= '1';
-							LED_I <= "00001100";
+							
+							REVERSE_I <= NOT REVERSE_I;
+							
+							LED_I(2) <= NOT LED_I(2);
+							LED_I(3) <= NOT LED_I(3);
 						end if;
 						if(SELECT_I = "10000") then
 							CURRENT_STATE <= SPEED;
@@ -141,6 +148,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 							CURRENT_STATE <= VOLUME;
 						end if;
 					when SPEED =>
+						LED_I <= "00000000";
 						BCD_01_I <= '0' & SPEED_I(3 downto 0);
 						BCD_02_I <= '0' & SPEED_I(7 downto 4);
 						BCD_03_I <= "10001";
@@ -173,4 +181,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED);
 	BCD_04_O <= BCD_04_I;
 	DPS_O <= DPS_I;
 	LED_O <= LED_I;
+	PLAY_O <= PLAY_I;
+	REC_O <= REC_I;
+	REVERSE_O <= REVERSE_I;
 end architecture;

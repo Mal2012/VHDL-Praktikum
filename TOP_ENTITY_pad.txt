@@ -1,7 +1,7 @@
-Release 14.7 - par P.20131013 (nt)
-Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Release 14.4 - par P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Wed Apr 22 17:50:27 2015
+Wed Apr 29 14:06:01 2015
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -323,7 +323,7 @@ Pinout by Pin Number:
 |U13       |           |IOBM     |IO_L14P_D11_2                |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |U14       |           |         |VCCO_2                       |         |           |2             |          |         |           |         |3.30     |          |           |                |
 |U15       |Led<2>     |IOB      |IO_L5P_2                     |OUTPUT   |LVCMOS33   |2             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
-|U16       |Led<0>     |IOB      |IO_L2P_CMPCLK_2              |OUTPUT   |LVCMOS33   |2             |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|U16       |Led<0>     |IOB      |IO_L2P_CMPCLK_2              |OUTPUT   |LVCMOS33   |2             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |U17       |seg<2>     |IOB      |IO_L52P_M1DQ14_1             |OUTPUT   |LVCMOS33   |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |U18       |seg<3>     |IOB      |IO_L52N_M1DQ15_1             |OUTPUT   |LVCMOS33   |1             |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |V1        |           |         |GND                          |         |           |              |          |         |           |         |         |          |           |                |

@@ -6,9 +6,9 @@ entity FREQ_DIVIDER is
 	port(CLK_I : in std_logic;
 		 RESET_I : in std_logic;
 		 CLK_400_O : out std_logic;
-		 CLK_48_O : out std_logic--;
+		 CLK_48_O : out std_logic;
 		-- CLK_882_O : out std_logic;
-		-- CLK_20M_SYM_O : out std_logic;
+		CLK_20M_SYM_O : out std_logic
 		-- CLK_20M_ASY_O : out std_logic
 		 );
 end entity;
@@ -113,6 +113,6 @@ architecture FREQ_DIVIDER_BEHAVE of FREQ_DIVIDER is
 	CLK_48_O <= INT_48;
 	CLK_400_O <= INT_400;
 	--CLK_882_O <= INT_882;
-	--CLK_20M_SYM_O <= CLK_20M_SYM_O_INT;
+	CLK_20M_SYM_O <= CLK_20M_SYM_O_INT;
 		
 	end architecture;
