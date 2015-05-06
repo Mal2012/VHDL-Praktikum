@@ -82,9 +82,13 @@ ARCHITECTURE behavior OF ADDA_TEST IS
    signal AD_BUS_L_O : std_logic_vector(11 downto 0);
 
 type word_type is array (1 to 3) of std_logic_vector(15 downto 0);
-constant word : word_type := ("0101010101010101",
-                                "0010100011111111",
-                                "0001000011111111");
+type wordda_type is array (1 to 3) of std_logic_vector(11 downto 0);
+constant word : word_type := ("1010101010100000",
+                                "1111100011110000",
+                                "1010100011110000");
+constant wordda : wordda_type := ("101010101010",
+                                "111110001111",
+                                "101010001111");							  
 
    -- Clock period definitions
    constant CLK_I_period : time := 10 ns;
@@ -140,13 +144,16 @@ BEGIN
 
 		
       -- insert stimulus here 
-		
+		--wait for 65ns;
 		for j in 1 to 3 loop -- 3 Datenpakete
 				wait for 30ns;
+						DA_BUS_R_O <= wordda(j);
+						DA_BUS_L_O <= wordda(j);
 				for i in 0 to 15 loop	-- abarbeiten der einzelnen bits
-						ADDATA_L_I <= word(j)(i); wait for 80ns;
+						ADDATA_L_I <= word(j)(i);
+						ADDATA_R_I <= word(j)(i); wait for 80ns;
 				end loop;
-
+				wait for 290ns;
     end loop;
 
       wait;

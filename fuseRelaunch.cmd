@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "E:/Namisslo_Koegler/HDL_Praktikum/ADDA_TEST_isim_beh.exe" -prj "E:/Namisslo_Koegler/HDL_Praktikum/ADDA_TEST_beh.prj" "work.ADDA_TEST" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/ADDA_TEST_isim_beh.exe" -prj "C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/ADDA_TEST_beh.prj" "work.ADDA_TEST" 
