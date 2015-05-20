@@ -20,13 +20,6 @@
         <signal name="clk_400" />
         <signal name="XLXN_15(4:0)" />
         <signal name="btn(4:0)" />
-        <signal name="XLXN_16" />
-        <signal name="XLXN_17" />
-        <signal name="XLXN_18(4:0)" />
-        <signal name="XLXN_19(3:0)" />
-        <signal name="XLXN_20(4:0)" />
-        <signal name="XLXN_21(4:0)" />
-        <signal name="XLXN_22(4:0)" />
         <port polarity="Output" name="an(3:0)" />
         <port polarity="Output" name="seg(6:0)" />
         <port polarity="Input" name="clk_I" />

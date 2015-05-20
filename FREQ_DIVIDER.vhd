@@ -28,9 +28,9 @@ architecture FREQ_DIVIDER_BEHAVE of FREQ_DIVIDER is
 				INT_48 <= '0';
 			else
 				INT_48 <= '0';
-				INT_COUNT_48 <= INT_COUNT_48 + 1;
+				INT_COUNT_48 <= INT_COUNT_48 + 1; -- Zähler bis 2082
 				if(INT_COUNT_48 = 2082) then 		-- benutze zahl, statt "zahl" wegen Eigenschaften d. std_logic und numeric_std Bibliotheken
-					INT_COUNT_48 <= (others => '0');
+					INT_COUNT_48 <= (others => '0'); -- Zähler überlauf bei 2082 und Ausgabe von 1 für einen Takt auf INT_48
 					INT_48 <= '1';
 				end if;
 			end if;
@@ -57,7 +57,7 @@ architecture FREQ_DIVIDER_BEHAVE of FREQ_DIVIDER is
 	end process;
 	
 		
-	CLK_48_O <= INT_48;
+	CLK_48_O <= INT_48; -- Zuweisung interner Signale auf Output Ports
 	CLK_400_O <= INT_400;
 
 		

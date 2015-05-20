@@ -3,17 +3,17 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity SEV_SEG_MUX is
-port(BCD_01_I : in std_logic_vector(4 downto 0);
+port(BCD_01_I : in std_logic_vector(4 downto 0); -- Eingangsleitung zur Ansteuerung der 7-Segment-Displays
 	 BCD_02_I : in std_logic_vector(4 downto 0);
 	 BCD_03_I : in std_logic_vector(4 downto 0);
 	 BCD_04_I : in std_logic_vector(4 downto 0); -- 5-Bit Zahlendarstellung für zusätzliche Zeichen
-	 DPS_I : in std_logic_vector(3 downto 0);
+	 DPS_I : in std_logic_vector(3 downto 0); -- Eingangssteuerleitung zur Ansteuerung der Punkte
 	 CLK_I : in std_logic; 
 	 CLK_400_I : in std_logic;
 	 RESET_I : in std_logic;
-	 DP_O : out std_logic;
-	 ANODE_O : out std_logic_vector(3 downto 0);
-	 DISPLAY_O : out std_logic_vector(6 downto 0));
+	 DP_O : out std_logic; -- Ausgangsleitung zur Steuerung der Punkte 
+	 ANODE_O : out std_logic_vector(3 downto 0); -- Ausgangsleitung zur Auswahl des 7-Segment-Displays
+	 DISPLAY_O : out std_logic_vector(6 downto 0)); -- Ausgangsleitung zur Steuerung des ausgewählten 7-Segment-Displays
 end entity;
 
 architecture SEV_SEG_MUX_behave of SEV_SEG_MUX is
@@ -23,7 +23,7 @@ architecture SEV_SEG_MUX_behave of SEV_SEG_MUX is
 	signal INT_BCD : std_logic_vector(4 downto 0); -- BCD-Auswahl (intern), auch hier: 5 Bit Zahlendarstellung
 	begin
 
-	PROC_COUNT : process(CLK_I)
+	PROC_COUNT : process(CLK_I) -- Zähler zum Durchschalten durch die Displays, damit ein stabiles Bild entsteht mit 400Hz
 		begin
 		if(rising_edge(CLK_I)) then
 			if(RESET_I = '1') then
@@ -60,7 +60,8 @@ architecture SEV_SEG_MUX_behave of SEV_SEG_MUX is
 				DPS_I(2) when "10",
 				DPS_I(3) when others;
 					
-	with INT_BCD select
+	-- Selektiere darzustellendes Zeichen 
+	with INT_BCD select 
 		INT_DSIPLAY <= "1000000" when "00000", -- 0
 			   		   "1111001" when "00001", -- 1
 					   "0100100" when "00010", -- 2
