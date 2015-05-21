@@ -1,6 +1,8 @@
 [Inputs]
 CLK_I
 RESET_I
+=ADBUS_L_I[11:0]=
+=ADBUS_R_I[11:0]=
 =SELECT_I[4:0]=
 [Outputs]
 PLAY_O
@@ -12,4 +14,6 @@ REVERSE_O
 =BCD_04_O[4:0]=
 =LED_O[7:0]=
 =DPS_O[3:0]=
+=DABUS_L_I[11:0]=
+=DABUS_R_I[11:0]=
 [BiDir]

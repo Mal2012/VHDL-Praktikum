@@ -6,6 +6,8 @@ entity CONTROL_UNIT is
 	port(
 		CLK_I : in std_logic;
 		RESET_I : in std_logic;
+		ADBUS_L_I : in STD_LOGIC_VECTOR (11 downto 0);
+		ADBUS_R_I : in STD_LOGIC_VECTOR (11 downto 0);
 		SELECT_I : in std_logic_vector(4 downto 0); -- entprellte Eingangsignale der Buttons
 		BCD_01_O : out std_logic_vector(4 downto 0); -- Ausgangssteuerleitung zur Ansteuerung der 7-Segment Displays
 		BCD_02_O : out std_logic_vector(4 downto 0);
@@ -15,13 +17,15 @@ entity CONTROL_UNIT is
 		DPS_O : out std_logic_vector(3 downto 0); -- Ausgangsteuerleitung zur Ansteuerung der Punkte 
 		PLAY_O : out std_logic; -- Ausgangssignal um Abspielmodus zu signalisieren
 		REC_O : out std_logic; -- Ausgangssignal um Aufnahmemodus zu signalisieren
-		REVERSE_O : out std_logic	-- Ausgangsignal um Reverse-Abspielmodus zu signalisieren
+		REVERSE_O : out std_logic;	-- Ausgangsignal um Reverse-Abspielmodus zu signalisieren
+		DABUS_L_I : out STD_LOGIC_VECTOR (11 downto 0);
+		DABUS_R_I : out STD_LOGIC_VECTOR (11 downto 0)
 	);
 end entity;
 
 architecture CONTROL_UNIT_BEHAVE of CONTROL_UNIT is
 
-type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED); -- Deklaration der States für die Statemachine 
+type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklaration der States für die Statemachine 
 	signal CURRENT_STATE : STATES;
 	signal LED_I : std_logic_vector(7 downto 0);
 	signal BCD_01_I : std_logic_vector(4 downto 0);
@@ -94,7 +98,10 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED); -- Deklaration der Sta
 							PLAY_I <= NOT PLAY_I;-- Wechsel des Ausgangssignals PLAY
 							LED_I(2) <= NOT LED_I(2); -- Einschalten/Ausschalten der Indikator LED zur Anzeige einer laufenden Wiedergabe
 						end if;
-						
+						if PLAY_I = '1' then
+							DABUS_L_I <= ADBUS_L_I;
+							DABUS_R_I <= ADBUS_R_I;
+						end if;
 						if(SELECT_I = "10000") then -- Wechsel in den Zustand VOL bei Buttondruck nach rechts
 							CURRENT_STATE <= VOLUME;
 						end if;
@@ -158,10 +165,36 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED); -- Deklaration der Sta
 							SPEED_I <= std_logic_vector(unsigned(SPEED_I) - 1);
 						end if;
 					if(SELECT_I = "10000") then -- Wechseln in den IDLE Zustand bei Buttondruck nach rechts
-							CURRENT_STATE <= IDLE;
+							CURRENT_STATE <= AD_L;
 						end if;
 						if(SELECT_I = "00100") then -- Wechseln in den REVERSE Zustand bei Buttondruck nach links
 							CURRENT_STATE <= REVERSE;
+						end if;
+						
+					when AD_L =>
+						BCD_01_I <= '0' & ADBUS_L_I(3 downto 0);
+						BCD_02_I <= '0' & ADBUS_L_I(7 downto 4);
+						BCD_03_I <= '0' & ADBUS_L_I(11 downto 8);
+						BCD_04_I <= "11111";
+					   DPS_I <= "1111"; -- Alle Punkte ausgeschaltet
+							if(SELECT_I = "10000") then -- Wechseln in den IDLE Zustand bei Buttondruck nach rechts
+							CURRENT_STATE <= AD_R;
+						end if;
+						if(SELECT_I = "00100") then -- Wechseln in den REVERSE Zustand bei Buttondruck nach links
+							CURRENT_STATE <= SPEED;
+						end if;
+						
+						when AD_R =>
+						BCD_01_I <= '0' & ADBUS_R_I(3 downto 0);
+						BCD_02_I <= '0' & ADBUS_R_I(7 downto 4);
+						BCD_03_I <= '0' & ADBUS_R_I(11 downto 8);
+						BCD_04_I <= "10100";
+					   DPS_I <= "1111"; -- Alle Punkte ausgeschaltet
+							if(SELECT_I = "10000") then -- Wechseln in den IDLE Zustand bei Buttondruck nach rechts
+							CURRENT_STATE <= IDLE;
+						end if;
+						if(SELECT_I = "00100") then -- Wechseln in den REVERSE Zustand bei Buttondruck nach links
+							CURRENT_STATE <= AD_L;
 						end if;
 					when others =>
 						CURRENT_STATE <= IDLE; -- Ausnahmebehandlung --> Wechsel in den IDLE Zustand

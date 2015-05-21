@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="ADDA">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-5-20T13:47:24</timestamp>
+    <pin polarity="Input" x="0" y="-544" name="CLK_I" />
+    <pin polarity="Input" x="0" y="-464" name="CLK_48_I" />
+    <pin polarity="Input" x="0" y="-384" name="RESET_I" />
+    <pin polarity="Input" x="0" y="-304" name="ADDATA_L_I" />
+    <pin polarity="Input" x="0" y="-224" name="ADDATA_R_I" />
+    <pin polarity="Input" x="0" y="-144" name="DA_BUS_R_O(11:0)" />
+    <pin polarity="Input" x="0" y="-64" name="DA_BUS_L_O(11:0)" />
+    <pin polarity="Output" x="560" y="-416" name="ADCLK_O" />
+    <pin polarity="Output" x="560" y="-352" name="ADCS_O" />
+    <pin polarity="Output" x="560" y="-288" name="DADATA_L_O" />
+    <pin polarity="Output" x="560" y="-224" name="DADATA_R_O" />
+    <pin polarity="Output" x="560" y="96" name="DACLK_O" />
+    <pin polarity="Output" x="560" y="-160" name="DACS_O" />
+    <pin polarity="Output" x="560" y="-96" name="AD_BUS_R_O(11:0)" />
+    <pin polarity="Output" x="560" y="-32" name="AD_BUS_L_O(11:0)" />
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="280" y="-584" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-544" type="pin CLK_I" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-464" type="pin CLK_48_I" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-384" type="pin RESET_I" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-304" type="pin ADDATA_L_I" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-224" type="pin ADDATA_R_I" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-144" type="pin DA_BUS_R_O(11:0)" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-64" type="pin DA_BUS_L_O(11:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-416" type="pin ADCLK_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-352" type="pin ADCS_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-288" type="pin DADATA_L_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-224" type="pin DADATA_R_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="96" type="pin DACLK_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-160" type="pin DACS_O" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-96" type="pin AD_BUS_R_O(11:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-32" type="pin AD_BUS_L_O(11:0)" />
+        <line x2="560" y1="96" y2="96" x1="496" />
+        <line x2="0" y1="-544" y2="-544" x1="64" />
+        <line x2="0" y1="-464" y2="-464" x1="64" />
+        <line x2="0" y1="-384" y2="-384" x1="64" />
+        <line x2="0" y1="-304" y2="-304" x1="64" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <rect width="64" x="0" y="-156" height="24" />
+        <line x2="0" y1="-144" y2="-144" x1="64" />
+        <rect width="64" x="0" y="-76" height="24" />
+        <line x2="0" y1="-64" y2="-64" x1="64" />
+        <line x2="560" y1="-416" y2="-416" x1="496" />
+        <line x2="560" y1="-352" y2="-352" x1="496" />
+        <line x2="560" y1="-288" y2="-288" x1="496" />
+        <line x2="560" y1="-224" y2="-224" x1="496" />
+        <line x2="560" y1="-160" y2="-160" x1="496" />
+        <rect width="64" x="496" y="-108" height="24" />
+        <line x2="560" y1="-96" y2="-96" x1="496" />
+        <rect width="64" x="496" y="-44" height="24" />
+        <line x2="560" y1="-32" y2="-32" x1="496" />
+        <rect width="432" x="64" y="-576" height="704" />
+    </graph>
+</symbol>

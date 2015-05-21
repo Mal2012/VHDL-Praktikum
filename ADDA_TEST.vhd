@@ -48,9 +48,9 @@ ARCHITECTURE behavior OF ADDA_TEST IS
 			ADDATA_R_I : IN  std_logic;
          DA_BUS_R_O : IN  std_logic_vector(11 downto 0);
          DA_BUS_L_O : IN  std_logic_vector(11 downto 0);
-			ics_o : out std_logic;
-			sample_o: out std_logic;
+			
          ADCLK_O : OUT  std_logic;
+			DACLK_O : OUT  std_logic;
          ADCS_O : OUT  std_logic;
          DADATA_L_O : OUT  std_logic;
 			DADATA_R_O : OUT  std_logic;
@@ -72,12 +72,12 @@ ARCHITECTURE behavior OF ADDA_TEST IS
 
  	--Outputs
    signal ADCLK_O : std_logic;
+	signal DACLK_O : std_logic;
    signal ADCS_O : std_logic;
    signal DADATA_R_O : std_logic;
 	signal DADATA_L_O : std_logic;
    signal DACS_O : std_logic;
-	signal sample_o : std_logic;
-	signal ics_o : std_logic;
+	
    signal AD_BUS_R_O : std_logic_vector(11 downto 0);
    signal AD_BUS_L_O : std_logic_vector(11 downto 0);
 
@@ -103,17 +103,20 @@ BEGIN
           RESET_I => RESET_I,
           ADDATA_L_I => ADDATA_L_I,
 			 ADDATA_R_I => ADDATA_R_I,
+			 ADCLK_O => ADCLK_O,
+			 DACLK_O => DACLK_O,
+          ADCS_O => ADCS_O,
+			 
+			 AD_BUS_R_O => AD_BUS_R_O,
+          AD_BUS_L_O => AD_BUS_L_O,
+			 
+			 
           DA_BUS_R_O => DA_BUS_R_O,
           DA_BUS_L_O => DA_BUS_L_O,
-          ADCLK_O => ADCLK_O,
-          ADCS_O => ADCS_O,
-			 ics_o => ics_o,
-			 sample_o => sample_o,
           DADATA_R_O => DADATA_R_O,
 			 DADATA_L_O => DADATA_L_O,
-          DACS_O => DACS_O,
-          AD_BUS_R_O => AD_BUS_R_O,
-          AD_BUS_L_O => AD_BUS_L_O
+          DACS_O => DACS_O
+          
         );
 
    -- Clock process definitions

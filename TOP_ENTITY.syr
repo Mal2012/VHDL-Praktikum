@@ -105,19 +105,22 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "E:\Namisslo_Koegler\HDL_Praktikum\SEV_SEG_MUX.vhd" into library work
+Parsing VHDL file "E:\Namislo-Koegler\SEV_SEG_MUX.vhd" into library work
 Parsing entity <SEV_SEG_MUX>.
 Parsing architecture <SEV_SEG_MUX_behave> of entity <sev_seg_mux>.
-Parsing VHDL file "E:\Namisslo_Koegler\HDL_Praktikum\FREQ_DIVIDER.vhd" into library work
+Parsing VHDL file "E:\Namislo-Koegler\FREQ_DIVIDER.vhd" into library work
 Parsing entity <FREQ_DIVIDER>.
 Parsing architecture <FREQ_DIVIDER_BEHAVE> of entity <freq_divider>.
-Parsing VHDL file "E:\Namisslo_Koegler\HDL_Praktikum\DEBOUNCE.vhd" into library work
+Parsing VHDL file "E:\Namislo-Koegler\DEBOUNCE.vhd" into library work
 Parsing entity <DEBOUNCE>.
 Parsing architecture <Behavioral> of entity <debounce>.
-Parsing VHDL file "E:\Namisslo_Koegler\HDL_Praktikum\CONTROL_UNIT.vhd" into library work
+Parsing VHDL file "E:\Namislo-Koegler\CONTROL_UNIT.vhd" into library work
 Parsing entity <CONTROL_UNIT>.
 Parsing architecture <CONTROL_UNIT_BEHAVE> of entity <control_unit>.
-Parsing VHDL file "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf" into library work
+Parsing VHDL file "E:\Namislo-Koegler\ADDA.vhd" into library work
+Parsing entity <ADDA>.
+Parsing architecture <Behavioral> of entity <adda>.
+Parsing VHDL file "E:\Namislo-Koegler\TOP_ENTITY.vhf" into library work
 Parsing entity <TOP_ENTITY>.
 Parsing architecture <BEHAVIORAL> of entity <top_entity>.
 
@@ -128,7 +131,7 @@ Parsing architecture <BEHAVIORAL> of entity <top_entity>.
 Elaborating entity <TOP_ENTITY> (architecture <BEHAVIORAL>) from library <work>.
 
 Elaborating entity <CONTROL_UNIT> (architecture <CONTROL_UNIT_BEHAVE>) from library <work>.
-INFO:HDLCompiler:679 - "E:\Namisslo_Koegler\HDL_Praktikum\CONTROL_UNIT.vhd" Line 171. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "E:\Namislo-Koegler\CONTROL_UNIT.vhd" Line 199. Case statement is complete. others clause is never selected
 
 Elaborating entity <FREQ_DIVIDER> (architecture <FREQ_DIVIDER_BEHAVE>) from library <work>.
 
@@ -136,22 +139,25 @@ Elaborating entity <SEV_SEG_MUX> (architecture <SEV_SEG_MUX_behave>) from librar
 
 Elaborating entity <DEBOUNCE> (architecture <Behavioral>) from library <work>.
 
+Elaborating entity <ADDA> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "E:\Namislo-Koegler\ADDA.vhd" Line 44: Assignment to ics ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "E:\Namislo-Koegler\ADDA.vhd" Line 96: Assignment to daics ignored, since the identifier is never used
+
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <TOP_ENTITY>.
-    Related source file is "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf".
-INFO:Xst:3210 - "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf" line 93: Output port <PLAY_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf" line 93: Output port <REC_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf" line 93: Output port <REVERSE_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.vhf" line 107: Output port <CLK_48_O> of the instance <XLXI_2> is unconnected or connected to loadless signal.
+    Related source file is "E:\Namislo-Koegler\TOP_ENTITY.vhf".
+INFO:Xst:3210 - "E:\Namislo-Koegler\TOP_ENTITY.vhf" line 134: Output port <PLAY_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Namislo-Koegler\TOP_ENTITY.vhf" line 134: Output port <REC_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "E:\Namislo-Koegler\TOP_ENTITY.vhf" line 134: Output port <REVERSE_O> of the instance <XLXI_1> is unconnected or connected to loadless signal.
     Summary:
 	no macro.
 Unit <TOP_ENTITY> synthesized.
 
 Synthesizing Unit <CONTROL_UNIT>.
-    Related source file is "E:\Namisslo_Koegler\HDL_Praktikum\CONTROL_UNIT.vhd".
+    Related source file is "E:\Namislo-Koegler\CONTROL_UNIT.vhd".
     Found 8-bit register for signal <LED_I>.
     Found 5-bit register for signal <BCD_01_I>.
     Found 5-bit register for signal <BCD_02_I>.
@@ -162,13 +168,15 @@ Synthesizing Unit <CONTROL_UNIT>.
     Found 1-bit register for signal <REC_I>.
     Found 1-bit register for signal <PLAY_I>.
     Found 1-bit register for signal <REVERSE_I>.
+    Found 12-bit register for signal <DABUS_L_I>.
+    Found 12-bit register for signal <DABUS_R_I>.
     Found 3-bit register for signal <CURRENT_STATE>.
     Found finite state machine <FSM_0> for signal <CURRENT_STATE>.
     -----------------------------------------------------------------------
-    | States             | 6                                              |
-    | Transitions        | 18                                             |
+    | States             | 8                                              |
+    | Transitions        | 24                                             |
     | Inputs             | 2                                              |
-    | Outputs            | 13                                             |
+    | Outputs            | 8                                              |
     | Clock              | CLK_I (rising_edge)                            |
     | Reset              | RESET_I (positive)                             |
     | Reset type         | synchronous                                    |
@@ -177,26 +185,28 @@ Synthesizing Unit <CONTROL_UNIT>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 8-bit adder for signal <VOL[7]_GND_6_o_add_15_OUT> created at line 1241.
-    Found 8-bit adder for signal <SPEED_I[7]_GND_6_o_add_30_OUT> created at line 1241.
-    Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_19_OUT<7:0>> created at line 1308.
-    Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_34_OUT<7:0>> created at line 1308.
+    Found 8-bit adder for signal <VOL[7]_GND_6_o_add_17_OUT> created at line 1241.
+    Found 8-bit adder for signal <SPEED_I[7]_GND_6_o_add_32_OUT> created at line 1241.
+    Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_21_OUT<7:0>> created at line 1308.
+    Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_36_OUT<7:0>> created at line 1308.
+    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_50_OUT> created at line 61.
+    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_51_OUT> created at line 61.
     WARNING:Xst:2404 -  FFs/Latches <DPS_I<1:4>> (without init value) have a constant value of 1 in block <CONTROL_UNIT>.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred  47 D-type flip-flop(s).
+	inferred  71 D-type flip-flop(s).
 	inferred  10 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <CONTROL_UNIT> synthesized.
 
 Synthesizing Unit <FREQ_DIVIDER>.
-    Related source file is "E:\Namisslo_Koegler\HDL_Praktikum\FREQ_DIVIDER.vhd".
-    Found 12-bit register for signal <INT_COUNT_48>.
+    Related source file is "E:\Namislo-Koegler\FREQ_DIVIDER.vhd".
     Found 1-bit register for signal <INT_48>.
     Found 7-bit register for signal <INT_COUNT_400>.
     Found 1-bit register for signal <INT_400>.
-    Found 12-bit adder for signal <INT_COUNT_48[11]_GND_7_o_add_10_OUT> created at line 1241.
-    Found 7-bit adder for signal <INT_COUNT_400[6]_GND_7_o_add_15_OUT> created at line 1241.
+    Found 12-bit register for signal <INT_COUNT_48>.
+    Found 12-bit adder for signal <INT_COUNT_48[11]_GND_7_o_add_0_OUT> created at line 1241.
+    Found 7-bit adder for signal <INT_COUNT_400[6]_GND_7_o_add_5_OUT> created at line 1241.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  21 D-type flip-flop(s).
@@ -204,17 +214,17 @@ Synthesizing Unit <FREQ_DIVIDER>.
 Unit <FREQ_DIVIDER> synthesized.
 
 Synthesizing Unit <SEV_SEG_MUX>.
-    Related source file is "E:\Namisslo_Koegler\HDL_Praktikum\SEV_SEG_MUX.vhd".
+    Related source file is "E:\Namislo-Koegler\SEV_SEG_MUX.vhd".
     Found 2-bit register for signal <INT_COUNT>.
     Found 2-bit adder for signal <INT_COUNT[1]_GND_8_o_add_0_OUT> created at line 1241.
     Found 4x4-bit Read Only RAM for signal <ANODE_O>
     Found 32x7-bit Read Only RAM for signal <INT_DSIPLAY>
     Found 1-bit 4-to-1 multiplexer for signal <DP_O> created at line 57.
-    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<4>> created at line 63.
-    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<3>> created at line 63.
-    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<2>> created at line 63.
-    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<1>> created at line 63.
-    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<0>> created at line 63.
+    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<4>> created at line 64.
+    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<3>> created at line 64.
+    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<2>> created at line 64.
+    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<1>> created at line 64.
+    Found 1-bit 4-to-1 multiplexer for signal <INT_BCD<0>> created at line 64.
     Summary:
 	inferred   2 RAM(s).
 	inferred   1 Adder/Subtractor(s).
@@ -223,7 +233,7 @@ Synthesizing Unit <SEV_SEG_MUX>.
 Unit <SEV_SEG_MUX> synthesized.
 
 Synthesizing Unit <DEBOUNCE>.
-    Related source file is "E:\Namisslo_Koegler\HDL_Praktikum\DEBOUNCE.vhd".
+    Related source file is "E:\Namislo-Koegler\DEBOUNCE.vhd".
     Found 5-bit register for signal <shift<1>>.
     Found 5-bit register for signal <shift<2>>.
     Found 5-bit register for signal <shift<3>>.
@@ -235,6 +245,36 @@ Synthesizing Unit <DEBOUNCE>.
 	inferred   9 Multiplexer(s).
 Unit <DEBOUNCE> synthesized.
 
+Synthesizing Unit <ADDA>.
+    Related source file is "E:\Namislo-Koegler\ADDA.vhd".
+WARNING:Xst:647 - Input <CLK_48_I> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <tmp>.
+    Found 1-bit register for signal <ADCS_O>.
+    Found 12-bit register for signal <input_r_o>.
+    Found 12-bit register for signal <input_r>.
+    Found 12-bit register for signal <input_l>.
+    Found 12-bit register for signal <input_l_o>.
+    Found 9-bit register for signal <dacnt>.
+    Found 1-bit register for signal <datmp>.
+    Found 1-bit register for signal <DACS_O>.
+    Found 1-bit register for signal <output_r>.
+    Found 1-bit register for signal <output_l>.
+    Found 16-bit register for signal <output_l_i>.
+    Found 16-bit register for signal <output_r_i>.
+    Found 9-bit register for signal <adcnt>.
+    Found 9-bit adder for signal <adcnt[8]_GND_10_o_add_0_OUT> created at line 1241.
+    Found 9-bit adder for signal <dacnt[8]_GND_10_o_add_22_OUT> created at line 1241.
+    Found 9-bit comparator greater for signal <GND_10_o_adcnt[8]_LessThan_4_o> created at line 64
+    Found 9-bit comparator greater for signal <adcnt[8]_GND_10_o_LessThan_5_o> created at line 64
+    Found 9-bit comparator greater for signal <GND_10_o_dacnt[8]_LessThan_26_o> created at line 110
+    Found 9-bit comparator greater for signal <dacnt[8]_GND_10_o_LessThan_27_o> created at line 110
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 104 D-type flip-flop(s).
+	inferred   4 Comparator(s).
+	inferred  36 Multiplexer(s).
+Unit <ADDA> synthesized.
+
 =========================================================================
 HDL Synthesis Report
 
@@ -242,26 +282,34 @@ Macro Statistics
 # RAMs                                                 : 2
  32x7-bit single-port Read Only RAM                    : 1
  4x4-bit single-port Read Only RAM                     : 1
-# Adders/Subtractors                                   : 5
+# Adders/Subtractors                                   : 7
  12-bit adder                                          : 1
  2-bit adder                                           : 1
  7-bit adder                                           : 1
  8-bit addsub                                          : 2
-# Registers                                            : 21
- 1-bit register                                        : 5
- 12-bit register                                       : 1
+ 9-bit adder                                           : 2
+# Registers                                            : 37
+ 1-bit register                                        : 11
+ 12-bit register                                       : 7
+ 16-bit register                                       : 2
  2-bit register                                        : 1
  5-bit register                                        : 10
  7-bit register                                        : 1
  8-bit register                                        : 3
-# Multiplexers                                         : 29
- 1-bit 2-to-1 multiplexer                              : 12
+ 9-bit register                                        : 2
+# Comparators                                          : 4
+ 9-bit comparator greater                              : 4
+# Multiplexers                                         : 65
+ 1-bit 2-to-1 multiplexer                              : 42
  1-bit 4-to-1 multiplexer                              : 6
- 12-bit 2-to-1 multiplexer                             : 1
+ 12-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
  2-bit 2-to-1 multiplexer                              : 1
  5-bit 2-to-1 multiplexer                              : 1
+ 5-bit 8-to-1 multiplexer                              : 2
  7-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 7
+ 8-bit 2-to-1 multiplexer                              : 5
+ 9-bit 2-to-1 multiplexer                              : 2
 # FSMs                                                 : 1
 
 =========================================================================
@@ -271,9 +319,14 @@ Macro Statistics
 =========================================================================
 
 
+Synthesizing (advanced) Unit <ADDA>.
+The following registers are absorbed into counter <dacnt>: 1 register on signal <dacnt>.
+The following registers are absorbed into counter <adcnt>: 1 register on signal <adcnt>.
+Unit <ADDA> synthesized (advanced).
+
 Synthesizing (advanced) Unit <CONTROL_UNIT>.
-The following registers are absorbed into counter <SPEED_I>: 1 register on signal <SPEED_I>.
 The following registers are absorbed into counter <VOL>: 1 register on signal <VOL>.
+The following registers are absorbed into counter <SPEED_I>: 1 register on signal <SPEED_I>.
 Unit <CONTROL_UNIT> synthesized (advanced).
 
 Synthesizing (advanced) Unit <FREQ_DIVIDER>.
@@ -315,17 +368,23 @@ Macro Statistics
  4x4-bit single-port distributed Read Only RAM         : 1
 # Adders/Subtractors                                   : 1
  2-bit adder                                           : 1
-# Counters                                             : 4
+# Counters                                             : 6
  12-bit up counter                                     : 1
  7-bit up counter                                      : 1
  8-bit updown counter                                  : 2
-# Registers                                            : 65
- Flip-Flops                                            : 65
-# Multiplexers                                         : 26
- 1-bit 2-to-1 multiplexer                              : 12
+ 9-bit up counter                                      : 2
+# Registers                                            : 175
+ Flip-Flops                                            : 175
+# Comparators                                          : 4
+ 9-bit comparator greater                              : 4
+# Multiplexers                                         : 60
+ 1-bit 2-to-1 multiplexer                              : 42
  1-bit 4-to-1 multiplexer                              : 6
+ 12-bit 2-to-1 multiplexer                             : 2
+ 16-bit 2-to-1 multiplexer                             : 2
  5-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 7
+ 5-bit 8-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 5
 # FSMs                                                 : 1
 
 =========================================================================
@@ -344,12 +403,15 @@ Optimizing FSM <XLXI_1/FSM_0> on signal <CURRENT_STATE[1:3]> with user encoding.
  volume  | 011
  reverse | 100
  speed   | 101
+ ad_l    | 110
+ ad_r    | 111
 ---------------------
-INFO:Xst:2261 - The FF/Latch <BCD_03_I_2> in Unit <CONTROL_UNIT> is equivalent to the following FF/Latch, which will be removed : <BCD_03_I_3> 
 
 Optimizing unit <TOP_ENTITY> ...
 
 Optimizing unit <DEBOUNCE> ...
+
+Optimizing unit <ADDA> ...
 
 Optimizing unit <CONTROL_UNIT> ...
 WARNING:Xst:1710 - FF/Latch <LED_I_4> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
@@ -358,20 +420,30 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_I_6> (without i
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_I_7> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <SEV_SEG_MUX> ...
-WARNING:Xst:2677 - Node <XLXI_1/PLAY_I> of sequential type is unconnected in block <TOP_ENTITY>.
-WARNING:Xst:2677 - Node <XLXI_1/REC_I> of sequential type is unconnected in block <TOP_ENTITY>.
 WARNING:Xst:2677 - Node <XLXI_1/REVERSE_I> of sequential type is unconnected in block <TOP_ENTITY>.
+WARNING:Xst:2677 - Node <XLXI_1/REC_I> of sequential type is unconnected in block <TOP_ENTITY>.
+WARNING:Xst:1710 - FF/Latch <XLXI_5/adcnt_8> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_5/dacnt_8> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <XLXI_5/datmp> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/tmp> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_0> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_0> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_1> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_1> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_2> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_2> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_3> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_3> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_4> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_4> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_5> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_5> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_6> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_6> 
+INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_7> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_7> 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block TOP_ENTITY, actual ratio is 1.
-FlipFlop XLXI_1/CURRENT_STATE_FSM_FFd1 has been replicated 1 time(s)
-FlipFlop XLXI_1/CURRENT_STATE_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop XLXI_4/BUTTON_O_0 has been replicated 3 time(s)
-FlipFlop XLXI_4/BUTTON_O_1 has been replicated 2 time(s)
-FlipFlop XLXI_4/BUTTON_O_2 has been replicated 3 time(s)
-FlipFlop XLXI_4/BUTTON_O_3 has been replicated 2 time(s)
-FlipFlop XLXI_4/BUTTON_O_4 has been replicated 3 time(s)
+Found area constraint ratio of 100 (+ 5) on block TOP_ENTITY, actual ratio is 3.
+FlipFlop XLXI_4/BUTTON_O_0 has been replicated 2 time(s)
+FlipFlop XLXI_4/BUTTON_O_1 has been replicated 1 time(s)
+FlipFlop XLXI_4/BUTTON_O_2 has been replicated 2 time(s)
+FlipFlop XLXI_4/BUTTON_O_3 has been replicated 1 time(s)
+FlipFlop XLXI_4/BUTTON_O_4 has been replicated 1 time(s)
+FlipFlop XLXI_5/adcnt_1 has been replicated 1 time(s)
+FlipFlop XLXI_5/adcnt_2 has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -379,8 +451,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 110
- Flip-Flops                                            : 110
+# Registers                                            : 224
+ Flip-Flops                                            : 224
 
 =========================================================================
 
@@ -403,29 +475,30 @@ Top Level Output File Name         : TOP_ENTITY.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 181
+# BELS                             : 313
 #      GND                         : 1
-#      INV                         : 4
-#      LUT1                        : 11
-#      LUT2                        : 10
-#      LUT3                        : 20
-#      LUT4                        : 13
-#      LUT5                        : 26
-#      LUT6                        : 42
-#      MUXCY                       : 25
+#      INV                         : 5
+#      LUT1                        : 13
+#      LUT2                        : 12
+#      LUT3                        : 39
+#      LUT4                        : 17
+#      LUT5                        : 84
+#      LUT6                        : 73
+#      MUXCY                       : 32
 #      VCC                         : 1
-#      XORCY                       : 28
-# FlipFlops/Latches                : 110
-#      FD                          : 12
-#      FDE                         : 18
-#      FDR                         : 21
-#      FDRE                        : 50
-#      FDS                         : 9
+#      XORCY                       : 36
+# FlipFlops/Latches                : 224
+#      FD                          : 13
+#      FDE                         : 68
+#      FDR                         : 53
+#      FDRE                        : 79
+#      FDS                         : 10
+#      FDSE                        : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 27
-#      IBUF                        : 6
-#      OBUF                        : 21
+# IO Buffers                       : 60
+#      IBUF                        : 8
+#      OBUF                        : 52
 
 Device utilization summary:
 ---------------------------
@@ -434,20 +507,20 @@ Selected Device : 6slx16csg324-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             110  out of  18224     0%  
- Number of Slice LUTs:                  126  out of   9112     1%  
-    Number used as Logic:               126  out of   9112     1%  
+ Number of Slice Registers:             224  out of  18224     1%  
+ Number of Slice LUTs:                  243  out of   9112     2%  
+    Number used as Logic:               243  out of   9112     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    156
-   Number with an unused Flip Flop:      46  out of    156    29%  
-   Number with an unused LUT:            30  out of    156    19%  
-   Number of fully used LUT-FF pairs:    80  out of    156    51%  
-   Number of unique control sets:         6
+ Number of LUT Flip Flop pairs used:    292
+   Number with an unused Flip Flop:      68  out of    292    23%  
+   Number with an unused LUT:            49  out of    292    16%  
+   Number of fully used LUT-FF pairs:   175  out of    292    59%  
+   Number of unique control sets:        10
 
 IO Utilization: 
- Number of IOs:                          28
- Number of bonded IOBs:                  28  out of    232    12%  
+ Number of IOs:                          61
+ Number of bonded IOBs:                  61  out of    232    26%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
@@ -473,7 +546,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk_I                              | BUFGP                  | 110   |
+clk_I                              | BUFGP                  | 224   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -484,8 +557,8 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 3.995ns (Maximum Frequency: 250.328MHz)
-   Minimum input arrival time before clock: 5.273ns
+   Minimum period: 4.415ns (Maximum Frequency: 226.501MHz)
+   Minimum input arrival time before clock: 6.063ns
    Maximum output required time after clock: 7.460ns
    Maximum combinational path delay: No path found
 
@@ -495,58 +568,51 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_I'
-  Clock period: 3.995ns (frequency: 250.328MHz)
-  Total number of paths / destination ports: 1313 / 155
+  Clock period: 4.415ns (frequency: 226.501MHz)
+  Total number of paths / destination ports: 2794 / 323
 -------------------------------------------------------------------------
-Delay:               3.995ns (Levels of Logic = 10)
-  Source:            XLXI_4/BUTTON_O_3_1 (FF)
-  Destination:       XLXI_1/SPEED_I_7 (FF)
+Delay:               4.415ns (Levels of Logic = 3)
+  Source:            XLXI_5/adcnt_0 (FF)
+  Destination:       XLXI_5/output_r_i_15 (FF)
   Source Clock:      clk_I rising
   Destination Clock: clk_I rising
 
-  Data Path: XLXI_4/BUTTON_O_3_1 to XLXI_1/SPEED_I_7
+  Data Path: XLXI_5/adcnt_0 to XLXI_5/output_r_i_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              1   0.525   1.112  XLXI_4/BUTTON_O_3_1 (XLXI_4/BUTTON_O_3_1)
-     LUT5:I0->O            2   0.254   0.725  XLXI_1/GND_6_o_SELECT_I[4]_equal_18_o<4>1 (XLXI_1/GND_6_o_SELECT_I[4]_equal_18_o_inv1_inv)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<0> (XLXI_1/Mcount_SPEED_I_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<1> (XLXI_1/Mcount_SPEED_I_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<2> (XLXI_1/Mcount_SPEED_I_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<3> (XLXI_1/Mcount_SPEED_I_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<4> (XLXI_1/Mcount_SPEED_I_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<5> (XLXI_1/Mcount_SPEED_I_cy<5>)
-     MUXCY:CI->O           0   0.023   0.000  XLXI_1/Mcount_SPEED_I_cy<6> (XLXI_1/Mcount_SPEED_I_cy<6>)
-     XORCY:CI->O           1   0.206   0.682  XLXI_1/Mcount_SPEED_I_xor<7> (XLXI_1/Result<7>1)
-     LUT6:I5->O            1   0.254   0.000  XLXI_1/SPEED_I_7_dpot (XLXI_1/SPEED_I_7_dpot)
-     FDRE:D                    0.074          XLXI_1/SPEED_I_7
+     FDR:C->Q              7   0.525   1.138  XLXI_5/adcnt_0 (XLXI_5/adcnt_0)
+     LUT4:I1->O            2   0.235   0.726  XLXI_5/dacnt[8]_GND_10_o_equal_24_o<8>11 (XLXI_5/dacnt[8]_GND_10_o_equal_24_o<8>1)
+     LUT5:I4->O           17   0.254   1.209  XLXI_5/dacnt[8]_GND_10_o_equal_28_o<8>1 (XLXI_5/dacnt[8]_GND_10_o_equal_28_o)
+     LUT3:I2->O            1   0.254   0.000  XLXI_5/Mmux_output_l_i[15]_DA_BUS_L_O[11]_mux_28_OUT71 (XLXI_5/output_l_i[15]_DA_BUS_L_O[11]_mux_28_OUT<15>)
+     FDE:D                     0.074          XLXI_5/output_l_i_15
     ----------------------------------------
-    Total                      3.995ns (1.476ns logic, 2.519ns route)
-                                       (36.9% logic, 63.1% route)
+    Total                      4.415ns (1.342ns logic, 3.073ns route)
+                                       (30.4% logic, 69.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_I'
-  Total number of paths / destination ports: 115 / 115
+  Total number of paths / destination ports: 230 / 230
 -------------------------------------------------------------------------
-Offset:              5.273ns (Levels of Logic = 2)
+Offset:              6.063ns (Levels of Logic = 2)
   Source:            Reset (PAD)
-  Destination:       XLXI_4/BUTTON_O_4 (FF)
+  Destination:       XLXI_1/DABUS_R_I_11 (FF)
   Destination Clock: clk_I rising
 
-  Data Path: Reset to XLXI_4/BUTTON_O_4
+  Data Path: Reset to XLXI_1/DABUS_R_I_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            93   1.328   2.154  Reset_IBUF (Reset_IBUF)
-     INV:I->O             18   0.255   1.234  XLXI_4/RESET_inv1_INV_0 (XLXI_4/RESET_inv)
-     FDE:CE                    0.302          XLXI_4/BUTTON_O_0
+     IBUF:I->O           157   1.328   2.800  Reset_IBUF (Reset_IBUF)
+     LUT5:I0->O           24   0.254   1.379  XLXI_1/_n0219_inv1 (XLXI_1/_n0219_inv)
+     FDE:CE                    0.302          XLXI_1/DABUS_L_I_0
     ----------------------------------------
-    Total                      5.273ns (1.885ns logic, 3.388ns route)
-                                       (35.8% logic, 64.2% route)
+    Total                      6.063ns (1.884ns logic, 4.179ns route)
+                                       (31.1% logic, 68.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_I'
-  Total number of paths / destination ports: 223 / 16
+  Total number of paths / destination ports: 254 / 47
 -------------------------------------------------------------------------
 Offset:              7.460ns (Levels of Logic = 3)
   Source:            XLXI_3/INT_COUNT_0 (FF)
@@ -575,20 +641,20 @@ Clock to Setup on destination clock clk_I
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_I          |    3.995|         |         |         |
+clk_I          |    4.415|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 4.77 secs
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.35 secs
  
 --> 
 
-Total memory usage is 281196 kilobytes
+Total memory usage is 285884 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    8 (   0 filtered)
-Number of infos    :    7 (   0 filtered)
+Number of warnings :   12 (   0 filtered)
+Number of infos    :   14 (   0 filtered)
 

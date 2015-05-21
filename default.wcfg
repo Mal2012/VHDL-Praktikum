@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="E:/Namislo-Koegler/ADDA_TEST_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="adda_test" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/adda_test/clk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/clk_48_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_48_i</obj_property>
+      <obj_property name="ObjectShortName">clk_48_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/reset_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_i</obj_property>
+      <obj_property name="ObjectShortName">reset_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/addata_l_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">addata_l_i</obj_property>
+      <obj_property name="ObjectShortName">addata_l_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/addata_r_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">addata_r_i</obj_property>
+      <obj_property name="ObjectShortName">addata_r_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/ad_bus_r_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ad_bus_r_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ad_bus_r_o[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/ad_bus_l_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ad_bus_l_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">ad_bus_l_o[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/ics_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ics_o</obj_property>
+      <obj_property name="ObjectShortName">ics_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/adclk_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adclk_o</obj_property>
+      <obj_property name="ObjectShortName">adclk_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/adcs_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">adcs_o</obj_property>
+      <obj_property name="ObjectShortName">adcs_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/sample_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sample_o</obj_property>
+      <obj_property name="ObjectShortName">sample_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/da_bus_r_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">da_bus_r_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">da_bus_r_o[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/da_bus_l_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">da_bus_l_o[11:0]</obj_property>
+      <obj_property name="ObjectShortName">da_bus_l_o[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/dacs_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dacs_o</obj_property>
+      <obj_property name="ObjectShortName">dacs_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/daics_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">daics_o</obj_property>
+      <obj_property name="ObjectShortName">daics_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/dadata_r_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dadata_r_o</obj_property>
+      <obj_property name="ObjectShortName">dadata_r_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/dadata_l_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dadata_l_o</obj_property>
+      <obj_property name="ObjectShortName">dadata_l_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/clk_i_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i_period</obj_property>
+      <obj_property name="ObjectShortName">clk_i_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/adda_test/clk_48_i_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_48_i_period</obj_property>
+      <obj_property name="ObjectShortName">clk_48_i_period</obj_property>
+   </wvobject>
+</wave_config>

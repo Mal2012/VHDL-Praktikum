@@ -1,8 +1,8 @@
 INTSTYLE=ise
-INFILE=E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.ncd
-OUTFILE=E:\Namisslo_Koegler\HDL_Praktikum\TOP_ENTITY.bit
+INFILE=E:\Namislo-Koegler\TOP_ENTITY.ncd
+OUTFILE=E:\Namislo-Koegler\TOP_ENTITY.bit
 FAMILY=Spartan6
 PART=xc6slx16-2csg324
-WORKINGDIR=E:\Namisslo_Koegler\HDL_Praktikum
+WORKINGDIR=E:\Namislo-Koegler
 LICENSE=ISE
 USER_INFO=174371481_174160543_210558519_540
