@@ -1,7 +1,7 @@
 Release 14.4 Drc P.49d (nt64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Wed May 20 16:24:25 2015
+Thu May 21 15:52:36 2015
 
 drc -z TOP_ENTITY.ncd TOP_ENTITY.pcf
 

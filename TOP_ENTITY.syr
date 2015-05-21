@@ -3,13 +3,13 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: TOP_ENTITY.prj
@@ -573,19 +573,19 @@ Timing constraint: Default period analysis for Clock 'clk_I'
 -------------------------------------------------------------------------
 Delay:               4.415ns (Levels of Logic = 3)
   Source:            XLXI_5/adcnt_0 (FF)
-  Destination:       XLXI_5/output_r_i_15 (FF)
+  Destination:       XLXI_5/output_r_i_0 (FF)
   Source Clock:      clk_I rising
   Destination Clock: clk_I rising
 
-  Data Path: XLXI_5/adcnt_0 to XLXI_5/output_r_i_15
+  Data Path: XLXI_5/adcnt_0 to XLXI_5/output_r_i_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              7   0.525   1.138  XLXI_5/adcnt_0 (XLXI_5/adcnt_0)
      LUT4:I1->O            2   0.235   0.726  XLXI_5/dacnt[8]_GND_10_o_equal_24_o<8>11 (XLXI_5/dacnt[8]_GND_10_o_equal_24_o<8>1)
      LUT5:I4->O           17   0.254   1.209  XLXI_5/dacnt[8]_GND_10_o_equal_28_o<8>1 (XLXI_5/dacnt[8]_GND_10_o_equal_28_o)
-     LUT3:I2->O            1   0.254   0.000  XLXI_5/Mmux_output_l_i[15]_DA_BUS_L_O[11]_mux_28_OUT71 (XLXI_5/output_l_i[15]_DA_BUS_L_O[11]_mux_28_OUT<15>)
-     FDE:D                     0.074          XLXI_5/output_l_i_15
+     LUT3:I2->O            1   0.254   0.000  XLXI_5/Mmux_output_l_i[15]_GND_10_o_mux_28_OUT16 (XLXI_5/output_l_i[15]_GND_10_o_mux_28_OUT<0>)
+     FDE:D                     0.074          XLXI_5/output_l_i_0
     ----------------------------------------
     Total                      4.415ns (1.342ns logic, 3.073ns route)
                                        (30.4% logic, 69.6% route)
@@ -648,11 +648,11 @@ clk_I          |    4.415|         |         |         |
 
 
 Total REAL time to Xst completion: 6.00 secs
-Total CPU time to Xst completion: 5.35 secs
+Total CPU time to Xst completion: 5.77 secs
  
 --> 
 
-Total memory usage is 285884 kilobytes
+Total memory usage is 285876 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   12 (   0 filtered)

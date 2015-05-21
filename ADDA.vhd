@@ -115,11 +115,11 @@ else
 			if datmp = '0' and dacnt(2) = '1' then
 				daics <= '1';
 				
-				output_l <= output_l_i(0); -- Schreiben des Aktuellen Wertes von Kanal Links an den DA-Wandler
-				output_r <= output_r_i(0); -- Schreiben des Aktuellen Wertes von Kanal Rechts an den DA-Wandler
-				for i in 0 to 14 loop
-				output_l_i(i) <= output_l_i(i+1); -- Shift des Schieberegisters um eine Stelle Kanal Links
-				output_r_i(i) <= output_r_i(i+1); -- Shift des Schieberegisters um eine Stelle Kanal Rechts
+				output_l <= output_l_i(15); -- Schreiben des Aktuellen Wertes von Kanal Links an den DA-Wandler
+				output_r <= output_r_i(15); -- Schreiben des Aktuellen Wertes von Kanal Rechts an den DA-Wandler
+				for i in 15 downto 1 loop
+				output_l_i(i) <= output_l_i(i-1); -- Shift des Schieberegisters um eine Stelle Kanal Links
+				output_r_i(i) <= output_r_i(i-1); -- Shift des Schieberegisters um eine Stelle Kanal Rechts
 				end loop;
 				
 			else
@@ -128,8 +128,8 @@ else
 			if dacnt = 3 then
 				output_l_i <= (others => '0'); -- Füllen des Schieberegisters für Kanal Links mit 0 
 				output_r_i <= (others => '0'); -- Füllen des Schieberegisters für Kanal Rechts mit 0
-				output_l_i(15 downto 4) <= DA_BUS_L_O; -- Schreiben der Daten von DA_BUS_L/R_O ins Schieberegister an Position 15 downto 4 -> 4 führende 0
-				output_r_i(15 downto 4) <= DA_BUS_R_O;
+				output_l_i(11 downto 0) <= DA_BUS_L_O; -- Schreiben der Daten von DA_BUS_L/R_O ins Schieberegister an Position 15 downto 4 -> 4 führende 0
+				output_r_i(11 downto 0) <= DA_BUS_R_O;
 			end if;
 		end if;
 		datmp <= dacnt(2);
