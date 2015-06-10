@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "E:/Namislo-Koegler/MEMORY_TEST_isim_beh.exe" -prj "E:/Namislo-Koegler/MEMORY_TEST_beh.prj" "work.MEMORY_TEST" 
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/MEMORY_TEST_isim_beh.exe" -prj "C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/MEMORY_TEST_beh.prj" "work.MEMORY_TEST" 

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-06-10T16:58:46</DateModified>
+  <DateModified>2015-06-10T18:20:58</DateModified>
   <ModuleName>TOP_ENTITY</ModuleName>
   <SummaryTimeStamp>2015-04-22T10:31:31</SummaryTimeStamp>
-  <SavedFilePath>E:/Namislo-Koegler/iseconfig/TOP_ENTITY.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>E:/Namislo-Koegler\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/iseconfig/TOP_ENTITY.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum\</ImplementationReportsDirectory>
   <DateInitialized>2015-04-22T10:17:18</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

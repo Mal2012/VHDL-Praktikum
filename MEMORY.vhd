@@ -111,12 +111,12 @@ PROC_STATE_MACHINE : process(CLK_I)
 							end if;
 							
 							IF (WCOUNT = 80 OR WCOUNT = 161) then
+								ADDRESS_I <= ADDRESS_I + 1;
 								CE_O <= '1';
 								WE_O <= '1';							
 							end if;
 							
 							WCOUNT <= WCOUNT + 1;
-							ADDRESS_I <= ADDRESS_I + 1;
 							
 							if (WCOUNT = 162) then
 								WCOUNT <= (others => '0');
@@ -134,7 +134,7 @@ PROC_STATE_MACHINE : process(CLK_I)
 							end if;
 							
 							IF (WCOUNT_R = 80 OR WCOUNT_R = 161) then
-									
+								
 								if (ADDRESS_R_I(0) = '0') then
 									DATAOL <= DATA_O_RAM;
 								else
@@ -142,13 +142,15 @@ PROC_STATE_MACHINE : process(CLK_I)
 								end if;
 								CE_O <= '1';
 								OE_O <= '1';
+								ADDRESS_R_I <= ADDRESS_R_I + 1;	
 							end if;
 							
 							WCOUNT_R <= WCOUNT_R + 1;
-							ADDRESS_R_I <= ADDRESS_R_I + 1;
+							
 							
 							if (WCOUNT_R = 162) then
 								WCOUNT_R <= (others => '0');
+								
 								CURRENT_STATE <= IDLE;
 							end if;
 					

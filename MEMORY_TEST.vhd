@@ -85,7 +85,7 @@ ARCHITECTURE behavior OF MEMORY_TEST IS
 
    -- Clock period definitions
    constant CLK_I_period : time := 10 ns;
-   constant CLK_48_period : time := 10 ns;
+   constant CLK_48_period : time := 40 ns;
  
 BEGIN
  
@@ -132,7 +132,7 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
 		RESET_I <= '1';
-      wait for 5 ns;	
+      wait for 10 ns;	
 		RESET_I <= '0';
 		wait for 5 ns;
       wait for CLK_I_period*10;
@@ -140,13 +140,13 @@ BEGIN
 		REC <= '1';
 		DATA_I_L <= "111111111111";
 		DATA_I_R <= "111111111111";
-		wait for 100 ns;
+		wait for CLK_I_period*80;
+		DATA_I_L <= "111111011111";
+		DATA_I_R <= "111111011111";
+		wait for CLK_I_period*82;
 		REC <= '0';
 		wait for 10 ns;
-		PLAY <= '1';
-		wait for 100 ns;
-		PLAY <= '0';
-		wait for 10 ns;
+
       -- insert stimulus here 
 
       wait;
