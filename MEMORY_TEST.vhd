@@ -138,15 +138,28 @@ BEGIN
       wait for CLK_I_period*10;
 		
 		REC <= '1';
-		DATA_I_L <= "111111111111";
-		DATA_I_R <= "111111111111";
-		wait for CLK_I_period*80;
-		DATA_I_L <= "111111011111";
+		DATA_I_L <= "111111011110";
 		DATA_I_R <= "111111011111";
-		wait for CLK_I_period*82;
+		wait for CLK_I_period*3;
+		for i in 1 to 5 loop
+		DATA_I_L <= "111111011110";
+		DATA_I_R <= "111111011111";
+		wait for CLK_I_period*160;
+		DATA_I_L <= "111111111110";
+		DATA_I_R <= "111111111111";
+		wait for CLK_I_period*160;
+		end loop;
+		wait for 10 ns;
+		--DATA_I_L <= "UUUUUUUUUUUU";
+		--DATA_I_R <= "UUUUUUUUUUUU";
 		REC <= '0';
 		wait for 10 ns;
-
+		PLAY <= '1';
+		for i in 1 to 5 loop
+		--DATA_O_RAM <= "0000111111011110";
+		wait for 80 ns;
+		--DATA_O_RAM <= "0000111111011111";
+		end loop;
       -- insert stimulus here 
 
       wait;

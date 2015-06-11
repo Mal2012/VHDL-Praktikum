@@ -109,13 +109,13 @@
          <ClosedNode>/DEBOUNCE_TEST - behavior E:|Namisslo_Koegler|HDL_Praktikum|DEBOUNCE_TEST.vhd</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>uut - MEMORY - Behavioral (C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/MEMORY.vhd)</SelectedItem>
+         <SelectedItem>uut - ADDA - Behavioral (C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/ADDA.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001e5000000020000000000000000000000000200000064ffffffff000000810000000300000002000001e50000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>uut - MEMORY - Behavioral (C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/MEMORY.vhd)</CurrentItem>
+      <CurrentItem>uut - ADDA - Behavioral (C:/Users/Malcolm/Documents/GitHub/VHDL-Praktikum/ADDA.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -123,13 +123,13 @@
          <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem/>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
       <ClosedNodes>

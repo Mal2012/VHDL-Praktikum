@@ -60,6 +60,9 @@ signal ADDRESS_I : unsigned (22 downto 0);
 signal ADDRESS_R_I : unsigned (22 downto 0);
 signal WCOUNT : unsigned (7 downto 0);
 signal WCOUNT_R : unsigned (7 downto 0);
+signal CE_I : STD_LOGIC;
+signal WE_I : STD_LOGIC;
+signal OE_I : STD_LOGIC;
 begin
 
 
@@ -68,16 +71,16 @@ PROC_STATE_MACHINE : process(CLK_I)
 		if(rising_edge(CLK_I)) then
 			if(RESET_I = '1') then
 				CURRENT_STATE <= IDLE;
-				CE_O <= '1';
-				OE_O <= '1';
-				WE_O <= '1';
+				CE_I <= '1';
+				OE_I <= '1';
+				WE_I <= '1';
 				LB_O <= '0';
 				UB_O <= '0';
 				ADDRESS_O <= (others => '0');
 				ADDRESS_I <= (others => '0');
 				ADDRESS_R_I <= (others => '0');
-				DATA_O_CONTROL_L <= (others => '0');
-				DATA_O_CONTROL_R <= (others => '0');
+				DATAOL <= (others => '0');
+				DATAOR <= (others => '0');
 				DATA_O_RAM <= (others => '0');
 				WCOUNT <= (others => '0');
 				WCOUNT_R <= (others => '0');
@@ -93,32 +96,36 @@ PROC_STATE_MACHINE : process(CLK_I)
 						end if;
 					
 						if PLAY = '1' AND REC = '0' AND CLK_48 = '1' then
-							WE_O <= '1';
+							WE_I <= '1';
 							CURRENT_STATE <= READ_RAM;
 						end if;
 						
 					when WRITE_RAM =>
+							
+							ADDRESS_O <= std_logic_vector(ADDRESS_I);
+							CE_I <= '0';
+							
+							IF (WCOUNT = 1 OR WCOUNT = 80) then
+								WE_I <= '0';
+								
+							end if;
+							
+							IF (WCOUNT = 79 OR WCOUNT = 160) then
+								ADDRESS_I <= ADDRESS_I + 1;
+								CE_I <= '1';
+								WE_I <= '1';	
+						
+							end if;
+							if (WE_I = '0' AND CE_I = '0') then
 							if (ADDRESS_I(0) = '0') then
 								DATA_O_RAM <= "0000" & DATAIL;
 							else
 								DATA_O_RAM <= "0000" & DATAIR;
 							end if;
-							ADDRESS_O <= std_logic_vector(ADDRESS_I);
-							
-							CE_O <= '0';
-							IF (WCOUNT = 1 OR WCOUNT = 82) then
-								WE_O <= '0';
 							end if;
-							
-							IF (WCOUNT = 80 OR WCOUNT = 161) then
-								ADDRESS_I <= ADDRESS_I + 1;
-								CE_O <= '1';
-								WE_O <= '1';							
-							end if;
-							
 							WCOUNT <= WCOUNT + 1;
 							
-							if (WCOUNT = 162) then
+							if (WCOUNT = 161) then
 								WCOUNT <= (others => '0');
 								CURRENT_STATE <= IDLE;
 							end if;
@@ -128,9 +135,9 @@ PROC_STATE_MACHINE : process(CLK_I)
 							
 							ADDRESS_O <= std_logic_vector(ADDRESS_R_I);
 							
-							CE_O <= '0';
+							CE_I <= '0';
 							IF (WCOUNT_R = 0 OR WCOUNT_R = 81) then
-								OE_O <= '0';
+								OE_I <= '0';
 							end if;
 							
 							IF (WCOUNT_R = 80 OR WCOUNT_R = 161) then
@@ -140,8 +147,8 @@ PROC_STATE_MACHINE : process(CLK_I)
 								else
 									DATAOR <= DATA_O_RAM;
 								end if;
-								CE_O <= '1';
-								OE_O <= '1';
+								CE_I <= '1';
+								OE_I <= '1';
 								ADDRESS_R_I <= ADDRESS_R_I + 1;	
 							end if;
 							
@@ -160,7 +167,11 @@ PROC_STATE_MACHINE : process(CLK_I)
 		end if;
 
 end process;
-
+CE_O <= CE_I;
+WE_O <= WE_I;
+OE_O <= OE_I;
+DATA_O_CONTROL_L <= DATAOL(11 downto 0);
+DATA_O_CONTROL_R <= DATAOR(11 downto 0);
 
 end Behavioral;
 
