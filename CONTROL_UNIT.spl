@@ -3,6 +3,8 @@ CLK_I
 RESET_I
 =ADBUS_L_I[11:0]=
 =ADBUS_R_I[11:0]=
+=MEMBUS_L_I[11:0]=
+=MEMBUS_R_I[11:0]=
 =SELECT_I[4:0]=
 [Outputs]
 PLAY_O
@@ -16,4 +18,6 @@ REVERSE_O
 =DPS_O[3:0]=
 =DABUS_L_I[11:0]=
 =DABUS_R_I[11:0]=
+=MEMBUS_L_O[11:0]=
+=MEMBUS_R_O[11:0]=
 [BiDir]

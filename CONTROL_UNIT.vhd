@@ -8,6 +8,8 @@ entity CONTROL_UNIT is
 		RESET_I : in std_logic;
 		ADBUS_L_I : in STD_LOGIC_VECTOR (11 downto 0);
 		ADBUS_R_I : in STD_LOGIC_VECTOR (11 downto 0);
+		MEMBUS_L_I : in STD_LOGIC_VECTOR (11 downto 0);
+		MEMBUS_R_I : in STD_LOGIC_VECTOR (11 downto 0);
 		SELECT_I : in std_logic_vector(4 downto 0); -- entprellte Eingangsignale der Buttons
 		BCD_01_O : out std_logic_vector(4 downto 0); -- Ausgangssteuerleitung zur Ansteuerung der 7-Segment Displays
 		BCD_02_O : out std_logic_vector(4 downto 0);
@@ -19,7 +21,9 @@ entity CONTROL_UNIT is
 		REC_O : out std_logic; -- Ausgangssignal um Aufnahmemodus zu signalisieren
 		REVERSE_O : out std_logic;	-- Ausgangsignal um Reverse-Abspielmodus zu signalisieren
 		DABUS_L_I : out STD_LOGIC_VECTOR (11 downto 0);
-		DABUS_R_I : out STD_LOGIC_VECTOR (11 downto 0)
+		DABUS_R_I : out STD_LOGIC_VECTOR (11 downto 0);
+		MEMBUS_L_O : out STD_LOGIC_VECTOR (11 downto 0);
+		MEMBUS_R_O : out STD_LOGIC_VECTOR (11 downto 0)
 	);
 end entity;
 
@@ -80,6 +84,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						DPS_I <= "1111"; -- Alle Punkte Ausgeschaltet
 					if (SELECT_I = "00001") then -- Starten/Stoppen der Aufnahme bei druck auf den mittleren Button
 							REC_I <= NOT REC_I; -- Wechsel des Ausgangssignals REC
+							
 							LED_I(1) <= NOT LED_I(1); -- Einschalten/Ausschalten der Indikator LED zur Anzeige einer laufenden Aufnahme
 						end if;
 						if(SELECT_I = "10000") then -- Wechsel in den Zustand PLAY bei Buttondruck nach rechts
@@ -94,13 +99,15 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						BCD_03_I <= "11111";
 						BCD_04_I <= "10101";
 						DPS_I <= "1111"; -- Alle Punkte ausgeschaltet
+						
 						if (SELECT_I = "00001") then -- Starten/Stoppen der Wiedergabe bei druck auf den mittleren Button
 							PLAY_I <= NOT PLAY_I;-- Wechsel des Ausgangssignals PLAY
 							LED_I(2) <= NOT LED_I(2); -- Einschalten/Ausschalten der Indikator LED zur Anzeige einer laufenden Wiedergabe
 						end if;
 						if PLAY_I = '1' then
-							DABUS_L_I <= ADBUS_L_I;
-							DABUS_R_I <= ADBUS_R_I;
+							
+							--DABUS_L_I <= MEMBUS_L_I;
+							--DABUS_R_I <= MEMBUS_R_I;
 						end if;
 						if(SELECT_I = "10000") then -- Wechsel in den Zustand VOL bei Buttondruck nach rechts
 							CURRENT_STATE <= VOLUME;
@@ -200,7 +207,9 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						CURRENT_STATE <= IDLE; -- Ausnahmebehandlung --> Wechsel in den IDLE Zustand
 				end case;
 			end if;
-		end if;
+		end if;	
+		
+
 	end process;
 	
 	BCD_01_O <= BCD_01_I; -- Zuweisung der internen Signale auf die Ausgangssignale 
@@ -212,4 +221,9 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 	PLAY_O <= PLAY_I;
 	REC_O <= REC_I;
 	REVERSE_O <= REVERSE_I;
+	MEMBUS_L_O <= ADBUS_L_I;
+	MEMBUS_R_O <= ADBUS_R_I;
+	DABUS_L_I <= MEMBUS_L_I when PLAY_I = '1' else ADBUS_L_I;
+	DABUS_R_I <= MEMBUS_R_I when PLAY_I = '1' else ADBUS_R_I;
+
 end architecture;

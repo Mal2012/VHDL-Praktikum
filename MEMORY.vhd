@@ -43,6 +43,7 @@ entity MEMORY is
            DATA_O_CONTROL_L : out  STD_LOGIC_VECTOR (11 downto 0);
            REC : in  STD_LOGIC;
            PLAY : in  STD_LOGIC;
+			  REVERSE : in  STD_LOGIC;
            UB_O : out  STD_LOGIC;
            DATA_I_R : in  STD_LOGIC_VECTOR (11 downto 0);
            DATA_O_CONTROL_R : out  STD_LOGIC_VECTOR (11 downto 0));
@@ -50,10 +51,11 @@ end MEMORY;
 
 architecture Behavioral of MEMORY is
 
-type STATES is (IDLE, WRITE_RAM, READ_RAM); -- Deklaration der States für die Statemachine 
+type STATES is (IDLE, WRITE_RAM, READ_RAM, WAIT_WRITE); -- Deklaration der States für die Statemachine 
 signal CURRENT_STATE : STATES;
 signal DATAIR : STD_LOGIC_VECTOR (11 downto 0);
 signal DATAIL : STD_LOGIC_VECTOR (11 downto 0);
+signal I_DATA_O_RAM : STD_LOGIC_VECTOR (15 downto 0);
 signal DATAOR : STD_LOGIC_VECTOR (15 downto 0);
 signal DATAOL : STD_LOGIC_VECTOR (15 downto 0);
 signal ADDRESS_I : unsigned (22 downto 0);
@@ -81,7 +83,7 @@ PROC_STATE_MACHINE : process(CLK_I)
 				ADDRESS_R_I <= (others => '0');
 				DATAOL <= (others => '0');
 				DATAOR <= (others => '0');
-				DATA_O_RAM <= (others => '0');
+				I_DATA_O_RAM <= (others => 'Z');
 				WCOUNT <= (others => '0');
 				WCOUNT_R <= (others => '0');
 			else
@@ -89,15 +91,32 @@ PROC_STATE_MACHINE : process(CLK_I)
 			case CURRENT_STATE is 
 					when IDLE =>
 					
-						if REC = '1' AND PLAY = '0' AND CLK_48 = '1' then 
+						if REC = '1' AND PLAY = '0' then 
+							
+							CURRENT_STATE <= WAIT_WRITE;
+						end if;
+					
+						if PLAY = '1' AND REC = '0' AND CLK_48 = '1' and REVERSE = '0' then
+							WE_I <= '1';
+	 						CURRENT_STATE <= READ_RAM;
+						end if;
+					
+					
+						if REVERSE = '1' AND PLAY = '0' AND REC = '0' AND CLK_48 = '1' then
+							WE_I <= '1';
+							ADDRESS_R_I <= ADDRESS_I;
+							CURRENT_STATE <= READ_RAM;
+						end if;
+					
+				   when WAIT_WRITE => 
+					
+						if CLK_48 = '1' then
 							DATAIR <= DATA_I_R;
 							DATAIL <= DATA_I_L;
 							CURRENT_STATE <= WRITE_RAM;
 						end if;
-					
-						if PLAY = '1' AND REC = '0' AND CLK_48 = '1' then
-							WE_I <= '1';
-							CURRENT_STATE <= READ_RAM;
+						if REC='0' then
+							CURRENT_STATE <= IDLE;
 						end if;
 						
 					when WRITE_RAM =>
@@ -105,12 +124,12 @@ PROC_STATE_MACHINE : process(CLK_I)
 							ADDRESS_O <= std_logic_vector(ADDRESS_I);
 							CE_I <= '0';
 							
-							IF (WCOUNT = 1 OR WCOUNT = 80) then
+							IF (WCOUNT = 1 OR WCOUNT = 12) then
 								WE_I <= '0';
 								
 							end if;
 							
-							IF (WCOUNT = 79 OR WCOUNT = 160) then
+							IF (WCOUNT = 9 OR WCOUNT = 20) then
 								ADDRESS_I <= ADDRESS_I + 1;
 								CE_I <= '1';
 								WE_I <= '1';	
@@ -118,29 +137,36 @@ PROC_STATE_MACHINE : process(CLK_I)
 							end if;
 							if (WE_I = '0' AND CE_I = '0') then
 							if (ADDRESS_I(0) = '0') then
-								DATA_O_RAM <= "0000" & DATAIL;
+								I_DATA_O_RAM <= "0000" & DATAIL;
 							else
-								DATA_O_RAM <= "0000" & DATAIR;
+								I_DATA_O_RAM <= "0000" & DATAIR;
 							end if;
 							end if;
 							WCOUNT <= WCOUNT + 1;
 							
-							if (WCOUNT = 161) then
+							if (WCOUNT = 21) then
 								WCOUNT <= (others => '0');
-								CURRENT_STATE <= IDLE;
+								CURRENT_STATE <= WAIT_WRITE;
 							end if;
 							
 							
 					when READ_RAM =>
+							if ADDRESS_R_I > ADDRESS_I AND  REVERSE = '0' then
+								ADDRESS_R_I <= (others => '0');
+							else 			
+								if REVERSE = '1' AND ADDRESS_R_I = "00000000000000000000000" then
+									ADDRESS_R_I <= ADDRESS_I;
+								end if;
+							end if; 
 							
 							ADDRESS_O <= std_logic_vector(ADDRESS_R_I);
-							
 							CE_I <= '0';
-							IF (WCOUNT_R = 0 OR WCOUNT_R = 81) then
+							
+							IF (WCOUNT_R = 1 OR WCOUNT_R = 10) then
 								OE_I <= '0';
 							end if;
 							
-							IF (WCOUNT_R = 80 OR WCOUNT_R = 161) then
+							IF (WCOUNT_R = 9 OR WCOUNT_R = 18) then
 								
 								if (ADDRESS_R_I(0) = '0') then
 									DATAOL <= DATA_O_RAM;
@@ -149,13 +175,17 @@ PROC_STATE_MACHINE : process(CLK_I)
 								end if;
 								CE_I <= '1';
 								OE_I <= '1';
+								if REVERSE = '0' then
 								ADDRESS_R_I <= ADDRESS_R_I + 1;	
+								else
+								ADDRESS_R_I <= ADDRESS_R_I - 1;
+								end if;
 							end if;
 							
 							WCOUNT_R <= WCOUNT_R + 1;
 							
 							
-							if (WCOUNT_R = 162) then
+							if (WCOUNT_R = 19) then
 								WCOUNT_R <= (others => '0');
 								
 								CURRENT_STATE <= IDLE;
@@ -172,6 +202,6 @@ WE_O <= WE_I;
 OE_O <= OE_I;
 DATA_O_CONTROL_L <= DATAOL(11 downto 0);
 DATA_O_CONTROL_R <= DATAOR(11 downto 0);
-
+DATA_O_RAM <= I_DATA_O_RAM when REC = '1' and CURRENT_STATE = WRITE_RAM else (others => 'Z');
 end Behavioral;
 

@@ -33,6 +33,20 @@
         <signal name="daclk" />
         <signal name="DABUS_L(11:0)" />
         <signal name="DABUS_R(11:0)" />
+        <signal name="XLXN_21" />
+        <signal name="XLXN_22" />
+        <signal name="XLXN_23(11:0)" />
+        <signal name="XLXN_24(11:0)" />
+        <signal name="XLXN_25(11:0)" />
+        <signal name="XLXN_26(11:0)" />
+        <signal name="MemAdr(22:0)" />
+        <signal name="RamCS" />
+        <signal name="MemOE" />
+        <signal name="MemWR" />
+        <signal name="RamLB" />
+        <signal name="RamUB" />
+        <signal name="MemDB(15:0)" />
+        <signal name="XLXN_27" />
         <port polarity="Output" name="an(3:0)" />
         <port polarity="Output" name="seg(6:0)" />
         <port polarity="Input" name="clk_I" />
@@ -52,8 +66,23 @@
         <port polarity="Output" name="daclk" />
         <port polarity="Output" name="DABUS_L(11:0)" />
         <port polarity="Output" name="DABUS_R(11:0)" />
+        <port polarity="Output" name="MemAdr(22:0)" />
+        <port polarity="Output" name="RamCS" />
+        <port polarity="Output" name="MemOE" />
+        <port polarity="Output" name="MemWR" />
+        <port polarity="Output" name="RamLB" />
+        <port polarity="Output" name="RamUB" />
+        <port polarity="BiDirectional" name="MemDB(15:0)" />
         <blockdef name="CONTROL_UNIT">
-            <timestamp>2015-5-20T14:4:6</timestamp>
+            <timestamp>2015-6-17T12:44:51</timestamp>
+            <rect width="64" x="0" y="660" height="24" />
+            <line x2="0" y1="672" y2="672" x1="64" />
+            <rect width="64" x="0" y="724" height="24" />
+            <line x2="0" y1="736" y2="736" x1="64" />
+            <rect width="64" x="432" y="660" height="24" />
+            <line x2="496" y1="672" y2="672" x1="432" />
+            <rect width="64" x="432" y="724" height="24" />
+            <line x2="496" y1="736" y2="736" x1="432" />
             <rect width="64" x="432" y="532" height="24" />
             <line x2="496" y1="544" y2="544" x1="432" />
             <rect width="64" x="432" y="596" height="24" />
@@ -81,7 +110,7 @@
             <line x2="496" y1="-224" y2="-224" x1="432" />
             <rect width="64" x="432" y="-172" height="24" />
             <line x2="496" y1="-160" y2="-160" x1="432" />
-            <rect width="368" x="64" y="-704" height="1472" />
+            <rect width="368" x="64" y="-704" height="1600" />
         </blockdef>
         <blockdef name="FREQ_DIVIDER">
             <timestamp>2015-4-22T13:23:9</timestamp>
@@ -147,15 +176,44 @@
             <line x2="560" y1="-32" y2="-32" x1="496" />
             <rect width="432" x="64" y="-576" height="704" />
         </blockdef>
+        <blockdef name="MEMORY">
+            <timestamp>2015-6-17T14:42:23</timestamp>
+            <line x2="0" y1="32" y2="32" x1="64" />
+            <line x2="0" y1="-544" y2="-544" x1="64" />
+            <line x2="0" y1="-464" y2="-464" x1="64" />
+            <line x2="0" y1="-384" y2="-384" x1="64" />
+            <line x2="0" y1="-304" y2="-304" x1="64" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <rect width="64" x="0" y="-156" height="24" />
+            <line x2="0" y1="-144" y2="-144" x1="64" />
+            <rect width="64" x="0" y="-76" height="24" />
+            <line x2="0" y1="-64" y2="-64" x1="64" />
+            <line x2="608" y1="-544" y2="-544" x1="544" />
+            <line x2="608" y1="-480" y2="-480" x1="544" />
+            <line x2="608" y1="-416" y2="-416" x1="544" />
+            <line x2="608" y1="-352" y2="-352" x1="544" />
+            <line x2="608" y1="-288" y2="-288" x1="544" />
+            <rect width="64" x="544" y="-236" height="24" />
+            <line x2="608" y1="-224" y2="-224" x1="544" />
+            <rect width="64" x="544" y="-172" height="24" />
+            <line x2="608" y1="-160" y2="-160" x1="544" />
+            <rect width="64" x="544" y="-108" height="24" />
+            <line x2="608" y1="-96" y2="-96" x1="544" />
+            <rect width="64" x="544" y="-44" height="24" />
+            <line x2="608" y1="-32" y2="-32" x1="544" />
+            <rect width="480" x="64" y="-576" height="640" />
+        </blockdef>
         <block symbolname="CONTROL_UNIT" name="XLXI_1">
             <blockpin signalname="clk_I" name="CLK_I" />
             <blockpin signalname="Reset" name="RESET_I" />
             <blockpin signalname="XLXN_16(11:0)" name="ADBUS_L_I(11:0)" />
             <blockpin signalname="XLXN_17(11:0)" name="ADBUS_R_I(11:0)" />
+            <blockpin signalname="XLXN_26(11:0)" name="MEMBUS_L_I(11:0)" />
+            <blockpin signalname="XLXN_25(11:0)" name="MEMBUS_R_I(11:0)" />
             <blockpin signalname="XLXN_15(4:0)" name="SELECT_I(4:0)" />
-            <blockpin name="PLAY_O" />
-            <blockpin name="REC_O" />
-            <blockpin name="REVERSE_O" />
+            <blockpin signalname="XLXN_21" name="PLAY_O" />
+            <blockpin signalname="XLXN_22" name="REC_O" />
+            <blockpin signalname="XLXN_27" name="REVERSE_O" />
             <blockpin signalname="XLXN_1(4:0)" name="BCD_01_O(4:0)" />
             <blockpin signalname="XLXN_2(4:0)" name="BCD_02_O(4:0)" />
             <blockpin signalname="XLXN_3(4:0)" name="BCD_03_O(4:0)" />
@@ -164,6 +222,8 @@
             <blockpin signalname="XLXN_6(3:0)" name="DPS_O(3:0)" />
             <blockpin signalname="DABUS_L(11:0)" name="DABUS_L_I(11:0)" />
             <blockpin signalname="DABUS_R(11:0)" name="DABUS_R_I(11:0)" />
+            <blockpin signalname="XLXN_23(11:0)" name="MEMBUS_L_O(11:0)" />
+            <blockpin signalname="XLXN_24(11:0)" name="MEMBUS_R_O(11:0)" />
         </block>
         <block symbolname="FREQ_DIVIDER" name="XLXI_2">
             <blockpin signalname="clk_I" name="CLK_I" />
@@ -207,6 +267,25 @@
             <blockpin signalname="dacs" name="DACS_O" />
             <blockpin signalname="XLXN_17(11:0)" name="AD_BUS_R_O(11:0)" />
             <blockpin signalname="XLXN_16(11:0)" name="AD_BUS_L_O(11:0)" />
+        </block>
+        <block symbolname="MEMORY" name="XLXI_6">
+            <blockpin signalname="clk_I" name="CLK_I" />
+            <blockpin signalname="CLK_48" name="CLK_48" />
+            <blockpin signalname="Reset" name="RESET_I" />
+            <blockpin signalname="XLXN_22" name="REC" />
+            <blockpin signalname="XLXN_21" name="PLAY" />
+            <blockpin signalname="XLXN_23(11:0)" name="DATA_I_L(11:0)" />
+            <blockpin signalname="XLXN_24(11:0)" name="DATA_I_R(11:0)" />
+            <blockpin signalname="MemDB(15:0)" name="DATA_O_RAM(15:0)" />
+            <blockpin signalname="RamCS" name="CE_O" />
+            <blockpin signalname="MemOE" name="OE_O" />
+            <blockpin signalname="MemWR" name="WE_O" />
+            <blockpin signalname="RamLB" name="LB_O" />
+            <blockpin signalname="RamUB" name="UB_O" />
+            <blockpin signalname="MemAdr(22:0)" name="ADDRESS_O(22:0)" />
+            <blockpin signalname="XLXN_26(11:0)" name="DATA_O_CONTROL_L(11:0)" />
+            <blockpin signalname="XLXN_25(11:0)" name="DATA_O_CONTROL_R(11:0)" />
+            <blockpin signalname="XLXN_27" name="REVERSE" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -401,6 +480,98 @@
         <branch name="DABUS_L(11:0)">
             <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="320" y="2528" type="branch" />
             <wire x2="352" y1="2528" y2="2528" x1="320" />
+        </branch>
+        <branch name="clk_I">
+            <wire x2="2752" y1="1936" y2="1936" x1="2736" />
+            <wire x2="2768" y1="1936" y2="1936" x1="2752" />
+        </branch>
+        <iomarker fontsize="28" x="2736" y="1936" name="clk_I" orien="R180" />
+        <branch name="CLK_48">
+            <attrtext style="alignment:SOFT-RIGHT;fontsize:28;fontname:Arial" attrname="Name" x="2736" y="2016" type="branch" />
+            <wire x2="2752" y1="2016" y2="2016" x1="2736" />
+            <wire x2="2768" y1="2016" y2="2016" x1="2752" />
+        </branch>
+        <branch name="Reset">
+            <wire x2="2752" y1="2096" y2="2096" x1="2736" />
+            <wire x2="2768" y1="2096" y2="2096" x1="2752" />
+        </branch>
+        <iomarker fontsize="28" x="2736" y="2096" name="Reset" orien="R180" />
+        <instance x="2768" y="2480" name="XLXI_6" orien="R0">
+        </instance>
+        <branch name="XLXN_21">
+            <wire x2="2336" y1="1760" y2="1760" x1="2320" />
+            <wire x2="2336" y1="1760" y2="2256" x1="2336" />
+            <wire x2="2768" y1="2256" y2="2256" x1="2336" />
+        </branch>
+        <branch name="XLXN_22">
+            <wire x2="3424" y1="1824" y2="1824" x1="2320" />
+            <wire x2="3424" y1="1824" y2="2560" x1="3424" />
+            <wire x2="2704" y1="2176" y2="2560" x1="2704" />
+            <wire x2="3424" y1="2560" y2="2560" x1="2704" />
+            <wire x2="2768" y1="2176" y2="2176" x1="2704" />
+        </branch>
+        <branch name="XLXN_23(11:0)">
+            <wire x2="2544" y1="2208" y2="2208" x1="2320" />
+            <wire x2="2544" y1="2208" y2="2336" x1="2544" />
+            <wire x2="2768" y1="2336" y2="2336" x1="2544" />
+        </branch>
+        <branch name="XLXN_24(11:0)">
+            <wire x2="2528" y1="2272" y2="2272" x1="2320" />
+            <wire x2="2528" y1="2272" y2="2416" x1="2528" />
+            <wire x2="2768" y1="2416" y2="2416" x1="2528" />
+        </branch>
+        <branch name="XLXN_25(11:0)">
+            <wire x2="1824" y1="2272" y2="2272" x1="1744" />
+            <wire x2="1744" y1="2272" y2="2544" x1="1744" />
+            <wire x2="3440" y1="2544" y2="2544" x1="1744" />
+            <wire x2="3440" y1="2384" y2="2384" x1="3376" />
+            <wire x2="3440" y1="2384" y2="2544" x1="3440" />
+        </branch>
+        <branch name="XLXN_26(11:0)">
+            <wire x2="1824" y1="2208" y2="2208" x1="1760" />
+            <wire x2="1760" y1="2208" y2="2528" x1="1760" />
+            <wire x2="3408" y1="2528" y2="2528" x1="1760" />
+            <wire x2="3408" y1="2320" y2="2320" x1="3376" />
+            <wire x2="3408" y1="2320" y2="2448" x1="3408" />
+            <wire x2="3408" y1="2448" y2="2528" x1="3408" />
+        </branch>
+        <branch name="MemAdr(22:0)">
+            <wire x2="3408" y1="2256" y2="2256" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="2256" name="MemAdr(22:0)" orien="R0" />
+        <branch name="RamCS">
+            <wire x2="3408" y1="1936" y2="1936" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="1936" name="RamCS" orien="R0" />
+        <branch name="MemOE">
+            <wire x2="3408" y1="2000" y2="2000" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="2000" name="MemOE" orien="R0" />
+        <branch name="MemWR">
+            <wire x2="3408" y1="2064" y2="2064" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="2064" name="MemWR" orien="R0" />
+        <branch name="RamLB">
+            <wire x2="3408" y1="2128" y2="2128" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="2128" name="RamLB" orien="R0" />
+        <branch name="RamUB">
+            <wire x2="3408" y1="2192" y2="2192" x1="3376" />
+        </branch>
+        <iomarker fontsize="28" x="3408" y="2192" name="RamUB" orien="R0" />
+        <branch name="MemDB(15:0)">
+            <wire x2="3392" y1="2448" y2="2448" x1="3376" />
+            <wire x2="3392" y1="2416" y2="2448" x1="3392" />
+            <wire x2="3488" y1="2416" y2="2416" x1="3392" />
+            <wire x2="3488" y1="2416" y2="2432" x1="3488" />
+        </branch>
+        <iomarker fontsize="28" x="3488" y="2432" name="MemDB(15:0)" orien="R90" />
+        <branch name="XLXN_27">
+            <wire x2="3136" y1="768" y2="768" x1="1616" />
+            <wire x2="3136" y1="768" y2="1888" x1="3136" />
+            <wire x2="1616" y1="768" y2="2512" x1="1616" />
+            <wire x2="2768" y1="2512" y2="2512" x1="1616" />
+            <wire x2="3136" y1="1888" y2="1888" x1="2320" />
         </branch>
     </sheet>
 </drawing>

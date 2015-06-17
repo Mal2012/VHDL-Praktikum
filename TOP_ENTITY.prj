@@ -1,4 +1,5 @@
 vhdl work "SEV_SEG_MUX.vhd"
+vhdl work "MEMORY.vhd"
 vhdl work "FREQ_DIVIDER.vhd"
 vhdl work "DEBOUNCE.vhd"
 vhdl work "CONTROL_UNIT.vhd"
