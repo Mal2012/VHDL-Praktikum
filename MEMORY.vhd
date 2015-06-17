@@ -51,7 +51,7 @@ end MEMORY;
 
 architecture Behavioral of MEMORY is
 
-type STATES is (IDLE, WRITE_RAM, READ_RAM, WAIT_WRITE); -- Deklaration der States für die Statemachine 
+type STATES is (IDLE, WRITE_RAM, READ_RAM, WAIT_WRITE, REVERSE_WAIT); -- Deklaration der States für die Statemachine 
 signal CURRENT_STATE : STATES;
 signal DATAIR : STD_LOGIC_VECTOR (11 downto 0);
 signal DATAIL : STD_LOGIC_VECTOR (11 downto 0);
@@ -105,7 +105,7 @@ PROC_STATE_MACHINE : process(CLK_I)
 						if REVERSE = '1' AND PLAY = '0' AND REC = '0' AND CLK_48 = '1' then
 							WE_I <= '1';
 							ADDRESS_R_I <= ADDRESS_I;
-							CURRENT_STATE <= READ_RAM;
+							CURRENT_STATE <= REVERSE_WAIT;
 						end if;
 					
 				   when WAIT_WRITE => 
@@ -148,7 +148,14 @@ PROC_STATE_MACHINE : process(CLK_I)
 								WCOUNT <= (others => '0');
 								CURRENT_STATE <= WAIT_WRITE;
 							end if;
-							
+					when REVERSE_WAIT =>
+						if CLK_48 = '1' then
+							CURRENT_STATE <= READ_RAM;
+						end if;
+						if REVERSE='0' then
+							CURRENT_STATE <= IDLE;
+						end if;
+					
 							
 					when READ_RAM =>
 							if ADDRESS_R_I > ADDRESS_I AND  REVERSE = '0' then
@@ -188,7 +195,7 @@ PROC_STATE_MACHINE : process(CLK_I)
 							if (WCOUNT_R = 19) then
 								WCOUNT_R <= (others => '0');
 								
-								CURRENT_STATE <= IDLE;
+								CURRENT_STATE <= REVERSE_WAIT;
 							end if;
 					
 			end case;

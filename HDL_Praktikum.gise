@@ -15,7 +15,7 @@
 
   <!--                                                          -->
 
-  <!-- Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved. -->
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
 
   <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
 
@@ -126,7 +126,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434553712" xil_pn:in_ck="5900170229358717558" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1434553712">
+    <transform xil_pn:end_ts="1434561572" xil_pn:in_ck="5900170229358717558" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1434561571">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADDA.vhd"/>
@@ -152,7 +152,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434553712" xil_pn:in_ck="5593392718390499831" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1434553712">
+    <transform xil_pn:end_ts="1434561572" xil_pn:in_ck="5593392718390499831" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1434561572">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADDA.vhd"/>
@@ -166,7 +166,7 @@
       <outfile xil_pn:name="SEV_SEG_MUX.vhd"/>
       <outfile xil_pn:name="TOP_ENTITY.vhf"/>
     </transform>
-    <transform xil_pn:end_ts="1434553716" xil_pn:in_ck="5593392718390499831" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1589173911565480636" xil_pn:start_ts="1434553712">
+    <transform xil_pn:end_ts="1434561579" xil_pn:in_ck="5593392718390499831" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="1589173911565480636" xil_pn:start_ts="1434561572">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -175,9 +175,10 @@
       <outfile xil_pn:name="MEMORY_TEST_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1434554668" xil_pn:in_ck="-7903105501973465613" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6078379927260405015" xil_pn:start_ts="1434554668">
+    <transform xil_pn:end_ts="1434561580" xil_pn:in_ck="-7903105501973465613" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-6078379927260405015" xil_pn:start_ts="1434561579">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -219,7 +220,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TOP_ENTITY.jhd"/>
       <outfile xil_pn:name="TOP_ENTITY.lso"/>
@@ -241,6 +244,7 @@
     <transform xil_pn:end_ts="1434554002" xil_pn:in_ck="-2109824356998379850" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="5080897600615935731" xil_pn:start_ts="1434553997">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="TOP_ENTITY.bld"/>
       <outfile xil_pn:name="TOP_ENTITY.ngd"/>
       <outfile xil_pn:name="TOP_ENTITY_ngdbuild.xrpt"/>
@@ -251,6 +255,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="TOP_ENTITY.pcf"/>
@@ -266,6 +271,7 @@
     <transform xil_pn:end_ts="1434554026" xil_pn:in_ck="-5538603972673382064" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="-1178055513630676559" xil_pn:start_ts="1434554013">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="TOP_ENTITY.ncd"/>
       <outfile xil_pn:name="TOP_ENTITY.pad"/>
       <outfile xil_pn:name="TOP_ENTITY.par"/>
@@ -280,6 +286,7 @@
     <transform xil_pn:end_ts="1434554032" xil_pn:in_ck="85220408511100498" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1434554026">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="TOP_ENTITY.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="top_entity.bgn"/>
@@ -292,10 +299,12 @@
     <transform xil_pn:end_ts="1434554034" xil_pn:in_ck="8586972441246003516" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="8482462020707587906" xil_pn:start_ts="1434554032">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1434554026" xil_pn:in_ck="-2109824356998379981" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1434554021">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="TOP_ENTITY.twr"/>
       <outfile xil_pn:name="TOP_ENTITY.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
