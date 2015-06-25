@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.49d on Wed Jun 17 17:13:31 2015
+// Written by: Map P.49d on Wed Jun 24 16:26:52 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -103,11 +103,11 @@ TIMEGRP sys_clk_pin = BEL "XLXI_2/INT_400" BEL "XLXI_2/INT_48" BEL
         BEL "XLXI_6/ADDRESS_I_6" BEL "XLXI_6/ADDRESS_I_5" BEL
         "XLXI_6/ADDRESS_I_4" BEL "XLXI_6/ADDRESS_I_3" BEL "XLXI_6/ADDRESS_I_2"
         BEL "XLXI_6/ADDRESS_I_1" BEL "XLXI_6/ADDRESS_I_0" BEL
-        "XLXI_6/WCOUNT_4" BEL "XLXI_6/WCOUNT_3" BEL "XLXI_6/WCOUNT_2" BEL
-        "XLXI_6/WCOUNT_1" BEL "XLXI_6/WCOUNT_0" BEL "XLXI_6/WCOUNT_R_4" BEL
-        "XLXI_6/WCOUNT_R_3" BEL "XLXI_6/WCOUNT_R_2" BEL "XLXI_6/WCOUNT_R_1"
-        BEL "XLXI_6/WCOUNT_R_0" BEL "XLXI_6/CURRENT_STATE_FSM_FFd1" BEL
-        "XLXI_6/CURRENT_STATE_FSM_FFd2" BEL "XLXI_6/ADDRESS_O_22" BEL
+        "XLXI_6/WCOUNT_R_4" BEL "XLXI_6/WCOUNT_R_3" BEL "XLXI_6/WCOUNT_R_2"
+        BEL "XLXI_6/WCOUNT_R_1" BEL "XLXI_6/WCOUNT_R_0" BEL "XLXI_6/WCOUNT_4"
+        BEL "XLXI_6/WCOUNT_3" BEL "XLXI_6/WCOUNT_2" BEL "XLXI_6/WCOUNT_1" BEL
+        "XLXI_6/WCOUNT_0" BEL "XLXI_6/CURRENT_STATE_FSM_FFd2" BEL
+        "XLXI_6/CURRENT_STATE_FSM_FFd3" BEL "XLXI_6/ADDRESS_O_22" BEL
         "XLXI_6/ADDRESS_O_21" BEL "XLXI_6/ADDRESS_O_20" BEL
         "XLXI_6/ADDRESS_O_19" BEL "XLXI_6/ADDRESS_O_18" BEL
         "XLXI_6/ADDRESS_O_17" BEL "XLXI_6/ADDRESS_O_16" BEL
@@ -145,83 +145,86 @@ TIMEGRP sys_clk_pin = BEL "XLXI_2/INT_400" BEL "XLXI_2/INT_48" BEL
         "XLXI_6/I_DATA_O_RAM_6" BEL "XLXI_6/I_DATA_O_RAM_5" BEL
         "XLXI_6/I_DATA_O_RAM_4" BEL "XLXI_6/I_DATA_O_RAM_3" BEL
         "XLXI_6/I_DATA_O_RAM_2" BEL "XLXI_6/I_DATA_O_RAM_1" BEL
-        "XLXI_6/I_DATA_O_RAM_0" BEL "XLXI_6/CE_I" BEL "XLXI_6/DATAIR_11" BEL
-        "XLXI_6/DATAIR_10" BEL "XLXI_6/DATAIR_9" BEL "XLXI_6/DATAIR_8" BEL
-        "XLXI_6/DATAIR_7" BEL "XLXI_6/DATAIR_6" BEL "XLXI_6/DATAIR_5" BEL
-        "XLXI_6/DATAIR_4" BEL "XLXI_6/DATAIR_3" BEL "XLXI_6/DATAIR_2" BEL
-        "XLXI_6/DATAIR_1" BEL "XLXI_6/DATAIR_0" BEL "XLXI_6/DATAIL_11" BEL
-        "XLXI_6/DATAIL_10" BEL "XLXI_6/DATAIL_9" BEL "XLXI_6/DATAIL_8" BEL
-        "XLXI_6/DATAIL_7" BEL "XLXI_6/DATAIL_6" BEL "XLXI_6/DATAIL_5" BEL
-        "XLXI_6/DATAIL_4" BEL "XLXI_6/DATAIL_3" BEL "XLXI_6/DATAIL_2" BEL
-        "XLXI_6/DATAIL_1" BEL "XLXI_6/DATAIL_0" BEL "XLXI_4/BUTTON_O_4" BEL
-        "XLXI_4/BUTTON_O_3" BEL "XLXI_4/BUTTON_O_2" BEL "XLXI_4/BUTTON_O_1"
-        BEL "XLXI_4/BUTTON_O_0" BEL "XLXI_4/shift_0_4" BEL "XLXI_4/shift_0_3"
-        BEL "XLXI_4/shift_0_2" BEL "XLXI_4/shift_0_1" BEL "XLXI_4/shift_0_0"
-        BEL "XLXI_4/shift_4_4" BEL "XLXI_4/shift_4_3" BEL "XLXI_4/shift_4_2"
-        BEL "XLXI_4/shift_4_1" BEL "XLXI_4/shift_4_0" BEL "XLXI_4/shift_3_4"
-        BEL "XLXI_4/shift_3_3" BEL "XLXI_4/shift_3_2" BEL "XLXI_4/shift_3_1"
-        BEL "XLXI_4/shift_3_0" BEL "XLXI_4/shift_2_4" BEL "XLXI_4/shift_2_3"
-        BEL "XLXI_4/shift_2_2" BEL "XLXI_4/shift_2_1" BEL "XLXI_4/shift_2_0"
-        BEL "XLXI_4/shift_1_4" BEL "XLXI_4/shift_1_3" BEL "XLXI_4/shift_1_2"
-        BEL "XLXI_4/shift_1_1" BEL "XLXI_4/shift_1_0" BEL "XLXI_5/adcnt_7" BEL
-        "XLXI_5/adcnt_6" BEL "XLXI_5/adcnt_5" BEL "XLXI_5/adcnt_4" BEL
-        "XLXI_5/adcnt_3" BEL "XLXI_5/adcnt_2" BEL "XLXI_5/adcnt_1" BEL
-        "XLXI_5/adcnt_0" BEL "XLXI_5/output_l" BEL "XLXI_5/output_r" BEL
-        "XLXI_5/input_l_o_11" BEL "XLXI_5/input_l_o_10" BEL
-        "XLXI_5/input_l_o_9" BEL "XLXI_5/input_l_o_8" BEL "XLXI_5/input_l_o_7"
-        BEL "XLXI_5/input_l_o_6" BEL "XLXI_5/input_l_o_5" BEL
-        "XLXI_5/input_l_o_4" BEL "XLXI_5/input_l_o_3" BEL "XLXI_5/input_l_o_2"
-        BEL "XLXI_5/input_l_o_1" BEL "XLXI_5/input_l_o_0" BEL
-        "XLXI_5/output_r_i_15" BEL "XLXI_5/output_r_i_14" BEL
-        "XLXI_5/output_r_i_13" BEL "XLXI_5/output_r_i_12" BEL
-        "XLXI_5/output_r_i_11" BEL "XLXI_5/output_r_i_10" BEL
-        "XLXI_5/output_r_i_9" BEL "XLXI_5/output_r_i_8" BEL
-        "XLXI_5/output_r_i_7" BEL "XLXI_5/output_r_i_6" BEL
-        "XLXI_5/output_r_i_5" BEL "XLXI_5/output_r_i_4" BEL
-        "XLXI_5/output_r_i_3" BEL "XLXI_5/output_r_i_2" BEL
-        "XLXI_5/output_r_i_1" BEL "XLXI_5/output_r_i_0" BEL
-        "XLXI_5/output_l_i_15" BEL "XLXI_5/output_l_i_14" BEL
-        "XLXI_5/output_l_i_13" BEL "XLXI_5/output_l_i_12" BEL
-        "XLXI_5/output_l_i_11" BEL "XLXI_5/output_l_i_10" BEL
-        "XLXI_5/output_l_i_9" BEL "XLXI_5/output_l_i_8" BEL
-        "XLXI_5/output_l_i_7" BEL "XLXI_5/output_l_i_6" BEL
-        "XLXI_5/output_l_i_5" BEL "XLXI_5/output_l_i_4" BEL
-        "XLXI_5/output_l_i_3" BEL "XLXI_5/output_l_i_2" BEL
-        "XLXI_5/output_l_i_1" BEL "XLXI_5/output_l_i_0" BEL
-        "XLXI_5/input_r_o_11" BEL "XLXI_5/input_r_o_10" BEL
-        "XLXI_5/input_r_o_9" BEL "XLXI_5/input_r_o_8" BEL "XLXI_5/input_r_o_7"
-        BEL "XLXI_5/input_r_o_6" BEL "XLXI_5/input_r_o_5" BEL
-        "XLXI_5/input_r_o_4" BEL "XLXI_5/input_r_o_3" BEL "XLXI_5/input_r_o_2"
-        BEL "XLXI_5/input_r_o_1" BEL "XLXI_5/input_r_o_0" BEL
-        "XLXI_5/input_l_11" BEL "XLXI_5/input_l_10" BEL "XLXI_5/input_l_9" BEL
-        "XLXI_5/input_l_8" BEL "XLXI_5/input_l_7" BEL "XLXI_5/input_l_6" BEL
-        "XLXI_5/input_l_5" BEL "XLXI_5/input_l_4" BEL "XLXI_5/input_l_3" BEL
-        "XLXI_5/input_l_2" BEL "XLXI_5/input_l_1" BEL "XLXI_5/input_l_0" BEL
-        "XLXI_5/input_r_11" BEL "XLXI_5/input_r_10" BEL "XLXI_5/input_r_9" BEL
-        "XLXI_5/input_r_8" BEL "XLXI_5/input_r_7" BEL "XLXI_5/input_r_6" BEL
-        "XLXI_5/input_r_5" BEL "XLXI_5/input_r_4" BEL "XLXI_5/input_r_3" BEL
-        "XLXI_5/input_r_2" BEL "XLXI_5/input_r_1" BEL "XLXI_5/input_r_0" BEL
-        "XLXI_5/datmp" BEL "XLXI_5/DACS_O" BEL "XLXI_5/ADCS_O" BEL
-        "XLXI_1/VOL_7" BEL "XLXI_1/VOL_6" BEL "XLXI_1/VOL_5" BEL
-        "XLXI_1/VOL_4" BEL "XLXI_1/VOL_3" BEL "XLXI_1/VOL_2" BEL
-        "XLXI_1/VOL_1" BEL "XLXI_1/VOL_0" BEL "XLXI_1/SPEED_I_7" BEL
-        "XLXI_1/SPEED_I_6" BEL "XLXI_1/SPEED_I_5" BEL "XLXI_1/SPEED_I_4" BEL
-        "XLXI_1/SPEED_I_3" BEL "XLXI_1/SPEED_I_2" BEL "XLXI_1/SPEED_I_1" BEL
-        "XLXI_1/SPEED_I_0" BEL "XLXI_1/CURRENT_STATE_FSM_FFd1" BEL
-        "XLXI_1/CURRENT_STATE_FSM_FFd2" BEL "XLXI_1/CURRENT_STATE_FSM_FFd3"
-        BEL "XLXI_1/LED_I_3" BEL "XLXI_1/LED_I_2" BEL "XLXI_1/LED_I_1" BEL
-        "XLXI_1/LED_I_0" BEL "XLXI_1/BCD_02_I_4" BEL "XLXI_1/BCD_02_I_3" BEL
-        "XLXI_1/BCD_02_I_2" BEL "XLXI_1/BCD_02_I_1" BEL "XLXI_1/BCD_02_I_0"
-        BEL "XLXI_1/BCD_01_I_4" BEL "XLXI_1/BCD_01_I_3" BEL
-        "XLXI_1/BCD_01_I_2" BEL "XLXI_1/BCD_01_I_1" BEL "XLXI_1/BCD_01_I_0"
-        BEL "XLXI_1/BCD_04_I_4" BEL "XLXI_1/BCD_04_I_3" BEL
-        "XLXI_1/BCD_04_I_2" BEL "XLXI_1/BCD_04_I_1" BEL "XLXI_1/BCD_04_I_0"
-        BEL "XLXI_1/BCD_03_I_4" BEL "XLXI_1/BCD_03_I_3" BEL
-        "XLXI_1/BCD_03_I_2" BEL "XLXI_1/BCD_03_I_1" BEL "XLXI_1/BCD_03_I_0"
-        BEL "XLXI_3/INT_COUNT_1" BEL "XLXI_3/INT_COUNT_0" BEL "XLXI_6/WE_I"
-        BEL "XLXI_1/REVERSE_I" BEL "XLXI_1/REC_I" BEL "XLXI_1/PLAY_I" BEL
+        "XLXI_6/I_DATA_O_RAM_0" BEL "XLXI_6/DATAIR_11" BEL "XLXI_6/DATAIR_10"
+        BEL "XLXI_6/DATAIR_9" BEL "XLXI_6/DATAIR_8" BEL "XLXI_6/DATAIR_7" BEL
+        "XLXI_6/DATAIR_6" BEL "XLXI_6/DATAIR_5" BEL "XLXI_6/DATAIR_4" BEL
+        "XLXI_6/DATAIR_3" BEL "XLXI_6/DATAIR_2" BEL "XLXI_6/DATAIR_1" BEL
+        "XLXI_6/DATAIR_0" BEL "XLXI_6/DATAIL_11" BEL "XLXI_6/DATAIL_10" BEL
+        "XLXI_6/DATAIL_9" BEL "XLXI_6/DATAIL_8" BEL "XLXI_6/DATAIL_7" BEL
+        "XLXI_6/DATAIL_6" BEL "XLXI_6/DATAIL_5" BEL "XLXI_6/DATAIL_4" BEL
+        "XLXI_6/DATAIL_3" BEL "XLXI_6/DATAIL_2" BEL "XLXI_6/DATAIL_1" BEL
+        "XLXI_6/DATAIL_0" BEL "XLXI_4/BUTTON_O_4" BEL "XLXI_4/BUTTON_O_3" BEL
+        "XLXI_4/BUTTON_O_2" BEL "XLXI_4/BUTTON_O_1" BEL "XLXI_4/BUTTON_O_0"
+        BEL "XLXI_4/shift_0_4" BEL "XLXI_4/shift_0_3" BEL "XLXI_4/shift_0_2"
+        BEL "XLXI_4/shift_0_1" BEL "XLXI_4/shift_0_0" BEL "XLXI_4/shift_4_4"
+        BEL "XLXI_4/shift_4_3" BEL "XLXI_4/shift_4_2" BEL "XLXI_4/shift_4_1"
+        BEL "XLXI_4/shift_4_0" BEL "XLXI_4/shift_3_4" BEL "XLXI_4/shift_3_3"
+        BEL "XLXI_4/shift_3_2" BEL "XLXI_4/shift_3_1" BEL "XLXI_4/shift_3_0"
+        BEL "XLXI_4/shift_2_4" BEL "XLXI_4/shift_2_3" BEL "XLXI_4/shift_2_2"
+        BEL "XLXI_4/shift_2_1" BEL "XLXI_4/shift_2_0" BEL "XLXI_4/shift_1_4"
+        BEL "XLXI_4/shift_1_3" BEL "XLXI_4/shift_1_2" BEL "XLXI_4/shift_1_1"
+        BEL "XLXI_4/shift_1_0" BEL "XLXI_5/adcnt_7" BEL "XLXI_5/adcnt_6" BEL
+        "XLXI_5/adcnt_5" BEL "XLXI_5/adcnt_4" BEL "XLXI_5/adcnt_3" BEL
+        "XLXI_5/adcnt_2" BEL "XLXI_5/adcnt_1" BEL "XLXI_5/adcnt_0" BEL
+        "XLXI_5/output_l" BEL "XLXI_5/output_r" BEL "XLXI_5/input_l_o_11" BEL
+        "XLXI_5/input_l_o_10" BEL "XLXI_5/input_l_o_9" BEL
+        "XLXI_5/input_l_o_8" BEL "XLXI_5/input_l_o_7" BEL "XLXI_5/input_l_o_6"
+        BEL "XLXI_5/input_l_o_5" BEL "XLXI_5/input_l_o_4" BEL
+        "XLXI_5/input_l_o_3" BEL "XLXI_5/input_l_o_2" BEL "XLXI_5/input_l_o_1"
+        BEL "XLXI_5/input_l_o_0" BEL "XLXI_5/output_r_i_15" BEL
+        "XLXI_5/output_r_i_14" BEL "XLXI_5/output_r_i_13" BEL
+        "XLXI_5/output_r_i_12" BEL "XLXI_5/output_r_i_11" BEL
+        "XLXI_5/output_r_i_10" BEL "XLXI_5/output_r_i_9" BEL
+        "XLXI_5/output_r_i_8" BEL "XLXI_5/output_r_i_7" BEL
+        "XLXI_5/output_r_i_6" BEL "XLXI_5/output_r_i_5" BEL
+        "XLXI_5/output_r_i_4" BEL "XLXI_5/output_r_i_3" BEL
+        "XLXI_5/output_r_i_2" BEL "XLXI_5/output_r_i_1" BEL
+        "XLXI_5/output_r_i_0" BEL "XLXI_5/output_l_i_15" BEL
+        "XLXI_5/output_l_i_14" BEL "XLXI_5/output_l_i_13" BEL
+        "XLXI_5/output_l_i_12" BEL "XLXI_5/output_l_i_11" BEL
+        "XLXI_5/output_l_i_10" BEL "XLXI_5/output_l_i_9" BEL
+        "XLXI_5/output_l_i_8" BEL "XLXI_5/output_l_i_7" BEL
+        "XLXI_5/output_l_i_6" BEL "XLXI_5/output_l_i_5" BEL
+        "XLXI_5/output_l_i_4" BEL "XLXI_5/output_l_i_3" BEL
+        "XLXI_5/output_l_i_2" BEL "XLXI_5/output_l_i_1" BEL
+        "XLXI_5/output_l_i_0" BEL "XLXI_5/input_r_o_11" BEL
+        "XLXI_5/input_r_o_10" BEL "XLXI_5/input_r_o_9" BEL
+        "XLXI_5/input_r_o_8" BEL "XLXI_5/input_r_o_7" BEL "XLXI_5/input_r_o_6"
+        BEL "XLXI_5/input_r_o_5" BEL "XLXI_5/input_r_o_4" BEL
+        "XLXI_5/input_r_o_3" BEL "XLXI_5/input_r_o_2" BEL "XLXI_5/input_r_o_1"
+        BEL "XLXI_5/input_r_o_0" BEL "XLXI_5/input_l_11" BEL
+        "XLXI_5/input_l_10" BEL "XLXI_5/input_l_9" BEL "XLXI_5/input_l_8" BEL
+        "XLXI_5/input_l_7" BEL "XLXI_5/input_l_6" BEL "XLXI_5/input_l_5" BEL
+        "XLXI_5/input_l_4" BEL "XLXI_5/input_l_3" BEL "XLXI_5/input_l_2" BEL
+        "XLXI_5/input_l_1" BEL "XLXI_5/input_l_0" BEL "XLXI_5/input_r_11" BEL
+        "XLXI_5/input_r_10" BEL "XLXI_5/input_r_9" BEL "XLXI_5/input_r_8" BEL
+        "XLXI_5/input_r_7" BEL "XLXI_5/input_r_6" BEL "XLXI_5/input_r_5" BEL
+        "XLXI_5/input_r_4" BEL "XLXI_5/input_r_3" BEL "XLXI_5/input_r_2" BEL
+        "XLXI_5/input_r_1" BEL "XLXI_5/input_r_0" BEL "XLXI_5/datmp" BEL
+        "XLXI_5/DACS_O" BEL "XLXI_5/ADCS_O" BEL "XLXI_1/VOL_7" BEL
+        "XLXI_1/VOL_6" BEL "XLXI_1/VOL_5" BEL "XLXI_1/VOL_4" BEL
+        "XLXI_1/VOL_3" BEL "XLXI_1/VOL_2" BEL "XLXI_1/VOL_1" BEL
+        "XLXI_1/SPEED_I_11" BEL "XLXI_1/SPEED_I_10" BEL "XLXI_1/SPEED_I_9" BEL
+        "XLXI_1/SPEED_I_8" BEL "XLXI_1/SPEED_I_7" BEL "XLXI_1/SPEED_I_6" BEL
+        "XLXI_1/SPEED_I_4" BEL "XLXI_1/SPEED_I_3" BEL "XLXI_1/SPEED_I_5" BEL
+        "XLXI_1/SPEED_I_2" BEL "XLXI_1/SPEED_I_1" BEL
+        "XLXI_1/CURRENT_STATE_FSM_FFd1" BEL "XLXI_1/CURRENT_STATE_FSM_FFd2"
+        BEL "XLXI_1/CURRENT_STATE_FSM_FFd3" BEL "XLXI_1/LED_I_3" BEL
+        "XLXI_1/LED_I_2" BEL "XLXI_1/LED_I_1" BEL "XLXI_1/LED_I_0" BEL
+        "XLXI_1/BCD_02_I_4" BEL "XLXI_1/BCD_02_I_3" BEL "XLXI_1/BCD_02_I_2"
+        BEL "XLXI_1/BCD_02_I_1" BEL "XLXI_1/BCD_02_I_0" BEL
+        "XLXI_1/BCD_01_I_4" BEL "XLXI_1/BCD_01_I_3" BEL "XLXI_1/BCD_01_I_2"
+        BEL "XLXI_1/BCD_01_I_1" BEL "XLXI_1/BCD_01_I_0" BEL
+        "XLXI_1/BCD_04_I_4" BEL "XLXI_1/BCD_04_I_3" BEL "XLXI_1/BCD_04_I_2"
+        BEL "XLXI_1/BCD_04_I_1" BEL "XLXI_1/BCD_04_I_0" BEL
+        "XLXI_1/BCD_03_I_4" BEL "XLXI_1/BCD_03_I_3" BEL "XLXI_1/BCD_03_I_2"
+        BEL "XLXI_1/BCD_03_I_1" BEL "XLXI_1/BCD_03_I_0" BEL
+        "XLXI_3/INT_COUNT_1" BEL "XLXI_3/INT_COUNT_0" BEL "XLXI_6/CE_I" BEL
+        "XLXI_6/WE_I" BEL "XLXI_1/REVERSE_I" BEL "XLXI_1/REC_I" BEL
+        "XLXI_1/PLAY_I" BEL "XLXI_6/CURRENT_STATE_FSM_FFd1" BEL
         "XLXI_6/RESET_I_CLK_I_DFF_111" BEL "XLXI_6/OE_I" BEL
-        "XLXI_1/REVERSE_I_1" BEL "clk_I_BUFGP/BUFG";
+        "XLXI_1/REVERSE_I_1" BEL "XLXI_1/REVERSE_I_2" BEL "XLXI_1/PLAY_I_1"
+        BEL "clk_I_BUFGP/BUFG";
 TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
 SCHEMATIC END;
 

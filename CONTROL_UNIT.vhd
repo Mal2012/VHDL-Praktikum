@@ -22,6 +22,8 @@ entity CONTROL_UNIT is
 		REVERSE_O : out std_logic;	-- Ausgangsignal um Reverse-Abspielmodus zu signalisieren
 		DABUS_L_I : out STD_LOGIC_VECTOR (11 downto 0);
 		DABUS_R_I : out STD_LOGIC_VECTOR (11 downto 0);
+		SPEED_O : out unsigned(11 downto 0);
+		VOL_O : out unsigned(7 downto 0);
 		MEMBUS_L_O : out STD_LOGIC_VECTOR (11 downto 0);
 		MEMBUS_R_O : out STD_LOGIC_VECTOR (11 downto 0)
 	);
@@ -37,12 +39,15 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 	signal BCD_03_I : std_logic_vector(4 downto 0);
 	signal BCD_04_I : std_logic_vector(4 downto 0);
 	signal DPS_I : std_logic_vector(3 downto 0);
-	signal VOL : std_logic_vector(7 downto 0); -- Internes Signal zur Steuerung der Lautstärke
-	signal SPEED_I : std_logic_vector(7 downto 0); -- Internes Signal zur Steuerung der Abspielgeschwindigkeit
+	signal VOL : unsigned(7 downto 0); -- Internes Signal zur Steuerung der Lautstärke
+	signal SPEED_I : unsigned(11 downto 0); -- Internes Signal zur Steuerung der Abspielgeschwindigkeit
 	signal PLAY_I : std_logic;
 	signal REVERSE_I : std_logic;
 	signal REC_I : std_logic;
+	signal Audio_L, Audio_R : std_logic_vector(19 downto 0);
 	begin
+	
+	
 	PROC_STATE_MACHINE : process(CLK_I)
 		begin
 		if(rising_edge(CLK_I)) then
@@ -54,12 +59,11 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 				BCD_03_I <= "10001";
 				BCD_04_I <= "10001";
 				DPS_I <= "1111"; -- Punkte alle Ausgeschaltet
-				VOL <= "00000000";
-				SPEED_I <= "00000000";
+				VOL <= "00100000";
+				SPEED_I <= "100000100010"; -- STD: 2082
 				REC_I <= '0';
 				PLAY_I <= '0';
 				REVERSE_I <= '0';
-
 			else
 			
 				case CURRENT_STATE is 
@@ -104,11 +108,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 							PLAY_I <= NOT PLAY_I;-- Wechsel des Ausgangssignals PLAY
 							LED_I(2) <= NOT LED_I(2); -- Einschalten/Ausschalten der Indikator LED zur Anzeige einer laufenden Wiedergabe
 						end if;
-						if PLAY_I = '1' then
-							
-							--DABUS_L_I <= MEMBUS_L_I;
-							--DABUS_R_I <= MEMBUS_R_I;
-						end if;
+						
 						if(SELECT_I = "10000") then -- Wechsel in den Zustand VOL bei Buttondruck nach rechts
 							CURRENT_STATE <= VOLUME;
 						end if;
@@ -117,18 +117,18 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						end if;
 					when VOLUME => -- VOL Zustand
 						LED_I <= "00000000"; -- Ausschalten aller LEDs
-						BCD_01_I <= '0' & VOL(3 downto 0); -- Anzeige der Lautstärke 2-stellig in Hexadezimalschreibweise
-						BCD_02_I <= '0' & VOL(7 downto 4);
+						BCD_01_I <= '0' & std_logic_vector(VOL(3 downto 0)); -- Anzeige der Lautstärke 2-stellig in Hexadezimalschreibweise
+						BCD_02_I <= '0' & std_logic_vector(VOL(7 downto 4));
 						BCD_03_I <= "10001";
 						BCD_04_I <= "10110";
 						DPS_I <= "1111"; -- Alle Punkte ausgeschaltet
 						
 						if(SELECT_I = "00010") then -- Erhöhen der Lautstärke bei Buttondruck nach oben
-							VOL <= std_logic_vector(unsigned(VOL) + 1);
+							VOL <= (VOL + 10);
 						end if;
 
 						if(SELECT_I = "01000") then -- Verringerung der Lautstärke bei Buttondruck nach unten
-							VOL <= std_logic_vector(unsigned(VOL) - 1);
+							VOL <= (VOL - 10);
 						end if;
 						
 						if(SELECT_I = "10000") then -- Wechsel in den Zustand REVERSE bei Buttondruck nach rechts
@@ -158,18 +158,18 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						end if;
 					when SPEED => -- SPEED Zustand
 						LED_I <= "00000000"; -- Alle LEDs ausschalten
-						BCD_01_I <= '0' & SPEED_I(3 downto 0); -- Anzeige der aktuellen Wiedergabegeschwindigkeit 2-stellig Hexadezimal
-						BCD_02_I <= '0' & SPEED_I(7 downto 4);
+						BCD_01_I <= '0' & std_logic_vector(SPEED_I(3 downto 0)); -- Anzeige der aktuellen Wiedergabegeschwindigkeit 2-stellig Hexadezimal
+						BCD_02_I <= '0' & std_logic_vector(SPEED_I(7 downto 4));
 						BCD_03_I <= "10001";
 						BCD_04_I <= "11000";
 						DPS_I <= "1111"; -- Alle Punkte ausgeschaltet
 						
 						if(SELECT_I = "00010") then -- Erhöhen der Geschwindigkeit bei Buttondruck nach oben
-							SPEED_I <= std_logic_vector(unsigned(SPEED_I) + 1);
+							SPEED_I <= (SPEED_I + 50);
 						end if;
 
 						if(SELECT_I = "01000") then -- Verringerung der Geschwindigkeit bei Buttondruck nach unten
-							SPEED_I <= std_logic_vector(unsigned(SPEED_I) - 1);
+							SPEED_I <=(SPEED_I - 50);
 						end if;
 					if(SELECT_I = "10000") then -- Wechseln in den IDLE Zustand bei Buttondruck nach rechts
 							CURRENT_STATE <= AD_L;
@@ -179,6 +179,7 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 						end if;
 						
 					when AD_L =>
+						CURRENT_STATE <= IDLE;
 						BCD_01_I <= '0' & ADBUS_L_I(3 downto 0);
 						BCD_02_I <= '0' & ADBUS_L_I(7 downto 4);
 						BCD_03_I <= '0' & ADBUS_L_I(11 downto 8);
@@ -223,7 +224,9 @@ type STATES is (IDLE, REC, PLAY, VOLUME, REVERSE, SPEED, AD_L, AD_R); -- Deklara
 	REVERSE_O <= REVERSE_I;
 	MEMBUS_L_O <= ADBUS_L_I;
 	MEMBUS_R_O <= ADBUS_R_I;
-	DABUS_L_I <= MEMBUS_L_I when PLAY_I = '1' else ADBUS_L_I;
-	DABUS_R_I <= MEMBUS_R_I when PLAY_I = '1' else ADBUS_R_I;
+	SPEED_O <= SPEED_I;
+	VOL_O <= VOL;
+	DABUS_L_I <= MEMBUS_L_I when (PLAY_I = '1' OR REVERSE_I = '1') else ADBUS_L_I;
+	DABUS_R_I <= MEMBUS_R_I when (PLAY_I = '1' OR REVERSE_I = '1') else ADBUS_R_I;
 
 end architecture;

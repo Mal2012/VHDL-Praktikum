@@ -1,0 +1,9 @@
+[Inputs]
+CLK_48
+=VOL[7:0]=
+=DATA_L[11:0]=
+=DATA_R[11:0]=
+[Outputs]
+=DATA_R_O[11:0]=
+=DATA_L_O[11:0]=
+[BiDir]

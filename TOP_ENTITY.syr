@@ -105,6 +105,9 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
+Parsing VHDL file "E:\Namislo_Koegler\VOLUME_CNT.vhd" into library work
+Parsing entity <VOLUME_CNT>.
+Parsing architecture <Behavioral> of entity <volume_cnt>.
 Parsing VHDL file "E:\Namislo_Koegler\SEV_SEG_MUX.vhd" into library work
 Parsing entity <SEV_SEG_MUX>.
 Parsing architecture <SEV_SEG_MUX_behave> of entity <sev_seg_mux>.
@@ -134,7 +137,7 @@ Parsing architecture <BEHAVIORAL> of entity <top_entity>.
 Elaborating entity <TOP_ENTITY> (architecture <BEHAVIORAL>) from library <work>.
 
 Elaborating entity <CONTROL_UNIT> (architecture <CONTROL_UNIT_BEHAVE>) from library <work>.
-INFO:HDLCompiler:679 - "E:\Namislo_Koegler\CONTROL_UNIT.vhd" Line 206. Case statement is complete. others clause is never selected
+INFO:HDLCompiler:679 - "E:\Namislo_Koegler\CONTROL_UNIT.vhd" Line 207. Case statement is complete. others clause is never selected
 
 Elaborating entity <FREQ_DIVIDER> (architecture <FREQ_DIVIDER_BEHAVE>) from library <work>.
 
@@ -147,6 +150,10 @@ WARNING:HDLCompiler:1127 - "E:\Namislo_Koegler\ADDA.vhd" Line 44: Assignment to 
 WARNING:HDLCompiler:1127 - "E:\Namislo_Koegler\ADDA.vhd" Line 96: Assignment to daics ignored, since the identifier is never used
 
 Elaborating entity <MEMORY> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <VOLUME_CNT> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:92 - "E:\Namislo_Koegler\VOLUME_CNT.vhd" Line 46: data_l should be on the sensitivity list of the process
+WARNING:HDLCompiler:92 - "E:\Namislo_Koegler\VOLUME_CNT.vhd" Line 47: data_r should be on the sensitivity list of the process
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -166,7 +173,7 @@ Synthesizing Unit <CONTROL_UNIT>.
     Found 5-bit register for signal <BCD_03_I>.
     Found 5-bit register for signal <BCD_04_I>.
     Found 8-bit register for signal <VOL>.
-    Found 8-bit register for signal <SPEED_I>.
+    Found 12-bit register for signal <SPEED_I>.
     Found 1-bit register for signal <REC_I>.
     Found 1-bit register for signal <PLAY_I>.
     Found 1-bit register for signal <REVERSE_I>.
@@ -186,15 +193,15 @@ Synthesizing Unit <CONTROL_UNIT>.
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
     Found 8-bit adder for signal <VOL[7]_GND_6_o_add_15_OUT> created at line 1241.
-    Found 8-bit adder for signal <SPEED_I[7]_GND_6_o_add_30_OUT> created at line 1241.
+    Found 12-bit adder for signal <SPEED_I[11]_GND_6_o_add_30_OUT> created at line 1241.
     Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_19_OUT<7:0>> created at line 1308.
-    Found 8-bit subtractor for signal <GND_6_o_GND_6_o_sub_34_OUT<7:0>> created at line 1308.
-    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_48_OUT> created at line 65.
-    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_49_OUT> created at line 65.
+    Found 12-bit subtractor for signal <GND_6_o_GND_6_o_sub_34_OUT<11:0>> created at line 1308.
+    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_48_OUT> created at line 69.
+    Found 5-bit 8-to-1 multiplexer for signal <CURRENT_STATE[2]_GND_6_o_wide_mux_49_OUT> created at line 69.
     WARNING:Xst:2404 -  FFs/Latches <DPS_I<1:4>> (without init value) have a constant value of 1 in block <CONTROL_UNIT>.
     Summary:
 	inferred   2 Adder/Subtractor(s).
-	inferred  47 D-type flip-flop(s).
+	inferred  51 D-type flip-flop(s).
 	inferred  12 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <CONTROL_UNIT> synthesized.
@@ -207,9 +214,11 @@ Synthesizing Unit <FREQ_DIVIDER>.
     Found 12-bit register for signal <INT_COUNT_48>.
     Found 12-bit adder for signal <INT_COUNT_48[11]_GND_7_o_add_0_OUT> created at line 1241.
     Found 7-bit adder for signal <INT_COUNT_400[6]_GND_7_o_add_5_OUT> created at line 1241.
+    Found 12-bit comparator equal for signal <INT_COUNT_48[11]_SPEED[11]_equal_2_o> created at line 33
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  21 D-type flip-flop(s).
+	inferred   1 Comparator(s).
 	inferred   3 Multiplexer(s).
 Unit <FREQ_DIVIDER> synthesized.
 
@@ -308,13 +317,13 @@ Synthesizing Unit <MEMORY>.
     Found 1-bit register for signal <RESET_I_CLK_I_DFF_122>.
     Found 1-bit register for signal <RESET_I_CLK_I_DFF_123>.
     Found 1-bit register for signal <RESET_I_CLK_I_DFF_124>.
-    Found 2-bit register for signal <CURRENT_STATE>.
+    Found 3-bit register for signal <CURRENT_STATE>.
     Found finite state machine <FSM_1> for signal <CURRENT_STATE>.
     -----------------------------------------------------------------------
-    | States             | 4                                              |
-    | Transitions        | 14                                             |
+    | States             | 5                                              |
+    | Transitions        | 18                                             |
     | Inputs             | 6                                              |
-    | Outputs            | 3                                              |
+    | Outputs            | 5                                              |
     | Clock              | CLK_I (rising_edge)                            |
     | Reset              | RESET_I (positive)                             |
     | Reset type         | synchronous                                    |
@@ -325,9 +334,9 @@ Synthesizing Unit <MEMORY>.
     -----------------------------------------------------------------------
     Found 23-bit adder for signal <ADDRESS_I[22]_GND_11_o_add_12_OUT> created at line 1241.
     Found 8-bit adder for signal <WCOUNT[7]_GND_11_o_add_16_OUT> created at line 1241.
-    Found 23-bit adder for signal <ADDRESS_R_I[22]_GND_11_o_add_30_OUT> created at line 1241.
-    Found 8-bit adder for signal <WCOUNT_R[7]_GND_11_o_add_36_OUT> created at line 1241.
-    Found 23-bit subtractor for signal <GND_11_o_GND_11_o_sub_32_OUT<22:0>> created at line 1308.
+    Found 23-bit adder for signal <ADDRESS_R_I[22]_GND_11_o_add_32_OUT> created at line 1241.
+    Found 8-bit adder for signal <WCOUNT_R[7]_GND_11_o_add_38_OUT> created at line 1241.
+    Found 23-bit subtractor for signal <GND_11_o_GND_11_o_sub_34_OUT<22:0>> created at line 1308.
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<15>> created at line 71
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<14>> created at line 71
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<13>> created at line 71
@@ -344,31 +353,40 @@ Synthesizing Unit <MEMORY>.
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<2>> created at line 71
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<1>> created at line 71
     Found 1-bit tristate buffer for signal <I_DATA_O_RAM<0>> created at line 71
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<15>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<14>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<13>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<12>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<11>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<10>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<9>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<8>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<7>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<6>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<5>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<4>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<3>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<2>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<1>> created at line 205
-    Found 1-bit tristate buffer for signal <DATA_O_RAM<0>> created at line 205
-    Found 23-bit comparator greater for signal <ADDRESS_I[22]_ADDRESS_R_I[22]_LessThan_21_o> created at line 154
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<15>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<14>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<13>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<12>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<11>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<10>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<9>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<8>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<7>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<6>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<5>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<4>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<3>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<2>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<1>> created at line 217
+    Found 1-bit tristate buffer for signal <DATA_O_RAM<0>> created at line 217
+    Found 23-bit comparator greater for signal <ADDRESS_I[22]_ADDRESS_R_I[22]_LessThan_23_o> created at line 163
     Summary:
 	inferred   4 Adder/Subtractor(s).
 	inferred 178 D-type flip-flop(s).
 	inferred   1 Comparator(s).
-	inferred  22 Multiplexer(s).
+	inferred  24 Multiplexer(s).
 	inferred  32 Tristate(s).
 	inferred   1 Finite State Machine(s).
 Unit <MEMORY> synthesized.
+
+Synthesizing Unit <VOLUME_CNT>.
+    Related source file is "E:\Namislo_Koegler\VOLUME_CNT.vhd".
+WARNING:Xst:647 - Input <CLK_48> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 12x8-bit multiplier for signal <temp_l> created at line 46.
+    Found 12x8-bit multiplier for signal <temp_r> created at line 47.
+    Summary:
+	inferred   2 Multiplier(s).
+Unit <VOLUME_CNT> synthesized.
 
 =========================================================================
 HDL Synthesis Report
@@ -377,30 +395,34 @@ Macro Statistics
 # RAMs                                                 : 2
  32x7-bit single-port Read Only RAM                    : 1
  4x4-bit single-port Read Only RAM                     : 1
+# Multipliers                                          : 2
+ 12x8-bit multiplier                                   : 2
 # Adders/Subtractors                                   : 11
  12-bit adder                                          : 1
+ 12-bit addsub                                         : 1
  2-bit adder                                           : 1
  23-bit adder                                          : 1
  23-bit addsub                                         : 1
  7-bit adder                                           : 1
  8-bit adder                                           : 2
- 8-bit addsub                                          : 2
+ 8-bit addsub                                          : 1
  9-bit adder                                           : 2
 # Registers                                            : 66
  1-bit register                                        : 32
- 12-bit register                                       : 7
+ 12-bit register                                       : 8
  16-bit register                                       : 5
  2-bit register                                        : 1
  23-bit register                                       : 3
  5-bit register                                        : 10
  7-bit register                                        : 1
- 8-bit register                                        : 5
+ 8-bit register                                        : 4
  9-bit register                                        : 2
-# Comparators                                          : 5
+# Comparators                                          : 6
+ 12-bit comparator equal                               : 1
  23-bit comparator greater                             : 1
  9-bit comparator greater                              : 4
-# Multiplexers                                         : 89
- 1-bit 2-to-1 multiplexer                              : 57
+# Multiplexers                                         : 91
+ 1-bit 2-to-1 multiplexer                              : 59
  1-bit 4-to-1 multiplexer                              : 6
  12-bit 2-to-1 multiplexer                             : 5
  16-bit 2-to-1 multiplexer                             : 3
@@ -424,14 +446,14 @@ Macro Statistics
 INFO:Xst:2261 - The FF/Latch <RESET_I_CLK_I_DFF_111> in Unit <XLXI_6> is equivalent to the following 15 FFs/Latches, which will be removed : <RESET_I_CLK_I_DFF_109> <RESET_I_CLK_I_DFF_110> <RESET_I_CLK_I_DFF_114> <RESET_I_CLK_I_DFF_112> <RESET_I_CLK_I_DFF_113> <RESET_I_CLK_I_DFF_117> <RESET_I_CLK_I_DFF_115> <RESET_I_CLK_I_DFF_116> <RESET_I_CLK_I_DFF_120> <RESET_I_CLK_I_DFF_118> <RESET_I_CLK_I_DFF_119> <RESET_I_CLK_I_DFF_123> <RESET_I_CLK_I_DFF_121> <RESET_I_CLK_I_DFF_122> <RESET_I_CLK_I_DFF_124> 
 WARNING:Xst:1710 - FF/Latch <LB_O> (without init value) has a constant value of 0 in block <XLXI_6>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <UB_O> (without init value) has a constant value of 0 in block <XLXI_6>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:2677 - Node <DATAOL_12> of sequential type is unconnected in block <XLXI_6>.
-WARNING:Xst:2677 - Node <DATAOL_13> of sequential type is unconnected in block <XLXI_6>.
-WARNING:Xst:2677 - Node <DATAOL_14> of sequential type is unconnected in block <XLXI_6>.
-WARNING:Xst:2677 - Node <DATAOL_15> of sequential type is unconnected in block <XLXI_6>.
 WARNING:Xst:2677 - Node <DATAOR_12> of sequential type is unconnected in block <XLXI_6>.
 WARNING:Xst:2677 - Node <DATAOR_13> of sequential type is unconnected in block <XLXI_6>.
 WARNING:Xst:2677 - Node <DATAOR_14> of sequential type is unconnected in block <XLXI_6>.
 WARNING:Xst:2677 - Node <DATAOR_15> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <DATAOL_12> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <DATAOL_13> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <DATAOL_14> of sequential type is unconnected in block <XLXI_6>.
+WARNING:Xst:2677 - Node <DATAOL_15> of sequential type is unconnected in block <XLXI_6>.
 
 Synthesizing (advanced) Unit <ADDA>.
 The following registers are absorbed into counter <dacnt>: 1 register on signal <dacnt>.
@@ -439,8 +461,8 @@ The following registers are absorbed into counter <adcnt>: 1 register on signal 
 Unit <ADDA> synthesized (advanced).
 
 Synthesizing (advanced) Unit <CONTROL_UNIT>.
-The following registers are absorbed into counter <VOL>: 1 register on signal <VOL>.
-The following registers are absorbed into counter <SPEED_I>: 1 register on signal <SPEED_I>.
+The following registers are absorbed into accumulator <VOL>: 1 register on signal <VOL>.
+The following registers are absorbed into accumulator <SPEED_I>: 1 register on signal <SPEED_I>.
 Unit <CONTROL_UNIT> synthesized (advanced).
 
 Synthesizing (advanced) Unit <FREQ_DIVIDER>.
@@ -450,8 +472,8 @@ Unit <FREQ_DIVIDER> synthesized (advanced).
 
 Synthesizing (advanced) Unit <MEMORY>.
 The following registers are absorbed into counter <ADDRESS_I>: 1 register on signal <ADDRESS_I>.
-The following registers are absorbed into counter <WCOUNT>: 1 register on signal <WCOUNT>.
 The following registers are absorbed into counter <WCOUNT_R>: 1 register on signal <WCOUNT_R>.
+The following registers are absorbed into counter <WCOUNT>: 1 register on signal <WCOUNT>.
 Unit <MEMORY> synthesized (advanced).
 
 Synthesizing (advanced) Unit <SEV_SEG_MUX>.
@@ -494,23 +516,28 @@ Macro Statistics
 # RAMs                                                 : 2
  32x7-bit single-port distributed Read Only RAM        : 1
  4x4-bit single-port distributed Read Only RAM         : 1
+# Multipliers                                          : 2
+ 12x8-bit multiplier                                   : 2
 # Adders/Subtractors                                   : 2
  2-bit adder                                           : 1
  23-bit addsub                                         : 1
-# Counters                                             : 9
+# Counters                                             : 7
  12-bit up counter                                     : 1
  23-bit up counter                                     : 1
  7-bit up counter                                      : 1
  8-bit up counter                                      : 2
- 8-bit updown counter                                  : 2
  9-bit up counter                                      : 2
+# Accumulators                                         : 2
+ 12-bit updown accumulator                             : 1
+ 8-bit updown accumulator                              : 1
 # Registers                                            : 282
  Flip-Flops                                            : 282
-# Comparators                                          : 5
+# Comparators                                          : 6
+ 12-bit comparator equal                               : 1
  23-bit comparator greater                             : 1
  9-bit comparator greater                              : 4
-# Multiplexers                                         : 82
- 1-bit 2-to-1 multiplexer                              : 57
+# Multiplexers                                         : 84
+ 1-bit 2-to-1 multiplexer                              : 59
  1-bit 4-to-1 multiplexer                              : 6
  12-bit 2-to-1 multiplexer                             : 4
  16-bit 2-to-1 multiplexer                             : 3
@@ -543,15 +570,16 @@ Optimizing FSM <XLXI_1/FSM_0> on signal <CURRENT_STATE[1:3]> with user encoding.
  ad_r    | 111
 ---------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <XLXI_6/FSM_1> on signal <CURRENT_STATE[1:2]> with user encoding.
-------------------------
- State      | Encoding
-------------------------
- idle       | 00
- write_ram  | 01
- read_ram   | 10
- wait_write | 11
-------------------------
+Optimizing FSM <XLXI_6/FSM_1> on signal <CURRENT_STATE[1:3]> with user encoding.
+--------------------------
+ State        | Encoding
+--------------------------
+ idle         | 000
+ write_ram    | 001
+ read_ram     | 010
+ wait_write   | 011
+ reverse_wait | 100
+--------------------------
 WARNING:Xst:2042 - Unit TOP_ENTITY: 16 internal tristates are replaced by logic (pull-up yes): XLXI_6/I_DATA_O_RAM<0>1, XLXI_6/I_DATA_O_RAM<10>1, XLXI_6/I_DATA_O_RAM<11>1, XLXI_6/I_DATA_O_RAM<12>1, XLXI_6/I_DATA_O_RAM<13>1, XLXI_6/I_DATA_O_RAM<14>1, XLXI_6/I_DATA_O_RAM<15>1, XLXI_6/I_DATA_O_RAM<1>1, XLXI_6/I_DATA_O_RAM<2>1, XLXI_6/I_DATA_O_RAM<3>1, XLXI_6/I_DATA_O_RAM<4>1, XLXI_6/I_DATA_O_RAM<5>1, XLXI_6/I_DATA_O_RAM<6>1, XLXI_6/I_DATA_O_RAM<7>1, XLXI_6/I_DATA_O_RAM<8>1, XLXI_6/I_DATA_O_RAM<9>1.
 
 Optimizing unit <TOP_ENTITY> ...
@@ -565,16 +593,19 @@ WARNING:Xst:1710 - FF/Latch <LED_I_4> (without init value) has a constant value 
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_I_5> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_I_6> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <LED_I_7> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <VOL_0> (without init value) has a constant value of 0 in block <CONTROL_UNIT>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <SEV_SEG_MUX> ...
-WARNING:Xst:1710 - FF/Latch <XLXI_6/WCOUNT_7> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_6> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_5> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_R_7> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <XLXI_6/WCOUNT_R_7> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_R_6> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_R_5> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_7> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_6> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_6/WCOUNT_5> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_5/adcnt_8> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_5/dacnt_8> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_1/VOL_0> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <XLXI_1/SPEED_I_0> (without init value) has a constant value of 0 in block <TOP_ENTITY>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <XLXI_5/datmp> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/tmp> 
 INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_0> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_0> 
 INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_1> in Unit <TOP_ENTITY> is equivalent to the following FF/Latch, which will be removed : <XLXI_5/dacnt_1> 
@@ -588,7 +619,8 @@ INFO:Xst:2261 - The FF/Latch <XLXI_5/adcnt_7> in Unit <TOP_ENTITY> is equivalent
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block TOP_ENTITY, actual ratio is 6.
-FlipFlop XLXI_1/REVERSE_I has been replicated 1 time(s)
+FlipFlop XLXI_1/PLAY_I has been replicated 1 time(s)
+FlipFlop XLXI_1/REVERSE_I has been replicated 2 time(s)
 
 Final Macro Processing ...
 
@@ -596,8 +628,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 342
- Flip-Flops                                            : 342
+# Registers                                            : 347
+ Flip-Flops                                            : 347
 
 =========================================================================
 
@@ -620,32 +652,35 @@ Top Level Output File Name         : TOP_ENTITY.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 601
+# BELS                             : 600
 #      GND                         : 1
 #      INV                         : 5
-#      LUT1                        : 37
-#      LUT2                        : 57
-#      LUT3                        : 75
-#      LUT4                        : 31
-#      LUT5                        : 74
-#      LUT6                        : 130
-#      MUXCY                       : 98
+#      LUT1                        : 27
+#      LUT2                        : 53
+#      LUT3                        : 56
+#      LUT4                        : 61
+#      LUT5                        : 98
+#      LUT6                        : 116
+#      MUXCY                       : 93
+#      MUXF7                       : 2
 #      VCC                         : 1
-#      XORCY                       : 92
-# FlipFlops/Latches                : 342
-#      FD                          : 19
+#      XORCY                       : 87
+# FlipFlops/Latches                : 347
+#      FD                          : 20
 #      FDE                         : 61
-#      FDR                         : 43
-#      FDRE                        : 206
-#      FDS                         : 11
-#      FDSE                        : 2
+#      FDR                         : 45
+#      FDRE                        : 204
+#      FDS                         : 12
+#      FDSE                        : 5
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
-# IO Buffers                       : 104
+# IO Buffers                       : 125
 #      IBUF                        : 8
 #      IOBUF                       : 12
-#      OBUF                        : 80
+#      OBUF                        : 101
 #      OBUFT                       : 4
+# DSPs                             : 2
+#      DSP48A1                     : 2
 
 Device utilization summary:
 ---------------------------
@@ -654,23 +689,24 @@ Selected Device : 6slx16csg324-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             342  out of  18224     1%  
- Number of Slice LUTs:                  409  out of   9112     4%  
-    Number used as Logic:               409  out of   9112     4%  
+ Number of Slice Registers:             347  out of  18224     1%  
+ Number of Slice LUTs:                  416  out of   9112     4%  
+    Number used as Logic:               416  out of   9112     4%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    488
-   Number with an unused Flip Flop:     146  out of    488    29%  
-   Number with an unused LUT:            79  out of    488    16%  
-   Number of fully used LUT-FF pairs:   263  out of    488    53%  
-   Number of unique control sets:        20
+ Number of LUT Flip Flop pairs used:    491
+   Number with an unused Flip Flop:     144  out of    491    29%  
+   Number with an unused LUT:            75  out of    491    15%  
+   Number of fully used LUT-FF pairs:   272  out of    491    55%  
+   Number of unique control sets:        19
 
 IO Utilization: 
- Number of IOs:                         105
- Number of bonded IOBs:                 105  out of    232    45%  
+ Number of IOs:                         126
+ Number of bonded IOBs:                 126  out of    232    54%  
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of DSP48A1s:                      2  out of     32     6%  
 
 ---------------------------
 Partition Resource Summary:
@@ -693,7 +729,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk_I                              | BUFGP                  | 342   |
+clk_I                              | BUFGP                  | 347   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -704,9 +740,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.311ns (Maximum Frequency: 158.453MHz)
-   Minimum input arrival time before clock: 6.296ns
-   Maximum output required time after clock: 7.460ns
+   Minimum period: 7.610ns (Maximum Frequency: 131.406MHz)
+   Minimum input arrival time before clock: 6.127ns
+   Maximum output required time after clock: 10.193ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -715,70 +751,68 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_I'
-  Clock period: 6.311ns (frequency: 158.453MHz)
-  Total number of paths / destination ports: 10220 / 557
+  Clock period: 7.610ns (frequency: 131.406MHz)
+  Total number of paths / destination ports: 13417 / 551
 -------------------------------------------------------------------------
-Delay:               6.311ns (Levels of Logic = 4)
-  Source:            XLXI_6/ADDRESS_R_I_5 (FF)
-  Destination:       XLXI_6/ADDRESS_R_I_22 (FF)
+Delay:               7.610ns (Levels of Logic = 3)
+  Source:            XLXI_1/REVERSE_I_1 (FF)
+  Destination:       XLXI_5/output_r_i_11 (FF)
   Source Clock:      clk_I rising
   Destination Clock: clk_I rising
 
-  Data Path: XLXI_6/ADDRESS_R_I_5 to XLXI_6/ADDRESS_R_I_22
+  Data Path: XLXI_1/REVERSE_I_1 to XLXI_5/output_r_i_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             5   0.525   1.271  XLXI_6/ADDRESS_R_I_5 (XLXI_6/ADDRESS_R_I_5)
-     LUT6:I1->O            1   0.254   0.958  XLXI_6/_n0457_inv3 (XLXI_6/_n0457_inv4)
-     LUT4:I0->O            1   0.254   0.682  XLXI_6/_n0457_inv7 (XLXI_6/_n0457_inv8)
-     LUT5:I4->O            1   0.254   0.000  XLXI_6/_n0457_inv8_lut1 (XLXI_6/_n0457_inv8_lut1)
-     MUXCY:S->O           23   0.454   1.357  XLXI_6/_n0457_inv8_cy1 (XLXI_6/_n0457_inv)
-     FDRE:CE                   0.302          XLXI_6/ADDRESS_R_I_0
+     FDR:C->Q             13   0.525   1.206  XLXI_1/REVERSE_I_1 (XLXI_1/REVERSE_I_1)
+     LUT4:I2->O            1   0.250   0.681  XLXI_1/Mmux_DABUS_R_I13 (DABUS_R<0>)
+     DSP48A1:B0->M19       2   3.894   0.726  XLXI_7/Mmult_temp_r (VOL_R_O_11_OBUF)
+     LUT6:I5->O            1   0.254   0.000  XLXI_5/Mmux_output_r_i[15]_GND_10_o_mux_29_OUT31 (XLXI_5/output_r_i[15]_GND_10_o_mux_29_OUT<11>)
+     FDE:D                     0.074          XLXI_5/output_r_i_11
     ----------------------------------------
-    Total                      6.311ns (2.043ns logic, 4.268ns route)
-                                       (32.4% logic, 67.6% route)
+    Total                      7.610ns (4.997ns logic, 2.613ns route)
+                                       (65.7% logic, 34.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_I'
-  Total number of paths / destination ports: 385 / 372
+  Total number of paths / destination ports: 380 / 377
 -------------------------------------------------------------------------
-Offset:              6.296ns (Levels of Logic = 3)
+Offset:              6.127ns (Levels of Logic = 2)
   Source:            Reset (PAD)
-  Destination:       XLXI_6/I_DATA_O_RAM_11 (FF)
+  Destination:       XLXI_6/DATAIR_11 (FF)
   Destination Clock: clk_I rising
 
-  Data Path: Reset to XLXI_6/I_DATA_O_RAM_11
+  Data Path: Reset to XLXI_6/DATAIR_11
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           262   1.328   2.862  Reset_IBUF (Reset_IBUF)
-     LUT5:I0->O           12   0.254   1.524  XLXI_6/RESET_I_CURRENT_STATE[1]_OR_64_o1 (XLXI_6/RESET_I_CURRENT_STATE[1]_OR_64_o)
-     LUT6:I0->O            1   0.254   0.000  XLXI_6/Mmux_n02831 (XLXI_6/n0283<0>)
-     FD:D                      0.074          XLXI_6/I_DATA_O_RAM_0
+     IBUF:I->O           274   1.328   2.864  Reset_IBUF (Reset_IBUF)
+     LUT5:I0->O           24   0.254   1.379  XLXI_6/_n0415_inv1 (XLXI_6/_n0415_inv)
+     FDE:CE                    0.302          XLXI_6/DATAIL_0
     ----------------------------------------
-    Total                      6.296ns (1.910ns logic, 4.386ns route)
-                                       (30.3% logic, 69.7% route)
+    Total                      6.127ns (1.884ns logic, 4.243ns route)
+                                       (30.7% logic, 69.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_I'
-  Total number of paths / destination ports: 408 / 89
+  Total number of paths / destination ports: 1675 / 108
 -------------------------------------------------------------------------
-Offset:              7.460ns (Levels of Logic = 3)
-  Source:            XLXI_3/INT_COUNT_0 (FF)
-  Destination:       seg<6> (PAD)
+Offset:              10.193ns (Levels of Logic = 3)
+  Source:            XLXI_1/REVERSE_I_1 (FF)
+  Destination:       VOL_L_O<11> (PAD)
   Source Clock:      clk_I rising
 
-  Data Path: XLXI_3/INT_COUNT_0 to seg<6>
+  Data Path: XLXI_1/REVERSE_I_1 to VOL_L_O<11>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            11   0.525   1.494  XLXI_3/INT_COUNT_0 (XLXI_3/INT_COUNT_0)
-     LUT6:I0->O            7   0.254   1.340  XLXI_3/Mmux_INT_BCD<3>11 (XLXI_3/INT_BCD<3>)
-     LUT5:I0->O            1   0.254   0.681  XLXI_3/Mram_INT_DSIPLAY21 (seg_2_OBUF)
-     OBUF:I->O                 2.912          seg_2_OBUF (seg<2>)
+     FDR:C->Q             13   0.525   1.206  XLXI_1/REVERSE_I_1 (XLXI_1/REVERSE_I_1)
+     LUT4:I2->O            1   0.250   0.681  XLXI_1/Mmux_DABUS_R_I13 (DABUS_R<0>)
+     DSP48A1:B0->M19       2   3.894   0.725  XLXI_7/Mmult_temp_r (VOL_R_O_11_OBUF)
+     OBUF:I->O                 2.912          VOL_R_O_11_OBUF (VOL_R_O<11>)
     ----------------------------------------
-    Total                      7.460ns (3.945ns logic, 3.515ns route)
-                                       (52.9% logic, 47.1% route)
+    Total                     10.193ns (7.581ns logic, 2.612ns route)
+                                       (74.4% logic, 25.6% route)
 
 =========================================================================
 
@@ -790,20 +824,20 @@ Clock to Setup on destination clock clk_I
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk_I          |    6.311|         |         |         |
+clk_I          |    7.610|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 7.00 secs
-Total CPU time to Xst completion: 6.96 secs
+Total CPU time to Xst completion: 7.28 secs
  
 --> 
 
-Total memory usage is 283888 kilobytes
+Total memory usage is 287024 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   37 (   0 filtered)
+Number of warnings :   43 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 

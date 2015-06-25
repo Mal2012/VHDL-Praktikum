@@ -7,7 +7,7 @@
 -- \   \   \/     Version : 14.4
 --  \   \         Application : sch2hdl
 --  /   /         Filename : TOP_ENTITY.vhf
--- /___/   /\     Timestamp : 06/17/2015 16:42:54
+-- /___/   /\     Timestamp : 06/24/2015 16:16:02
 -- \   \  /  \ 
 --  \___\/\___\ 
 --
@@ -36,8 +36,6 @@ entity TOP_ENTITY is
           an       : out   std_logic_vector (3 downto 0); 
           CLK_48   : out   std_logic; 
           clk_400  : out   std_logic; 
-          DABUS_L  : out   std_logic_vector (11 downto 0); 
-          DABUS_R  : out   std_logic_vector (11 downto 0); 
           daclk    : out   std_logic; 
           dacs     : out   std_logic; 
           dadata_l : out   std_logic; 
@@ -50,30 +48,39 @@ entity TOP_ENTITY is
           RamCS    : out   std_logic; 
           RamLB    : out   std_logic; 
           RamUB    : out   std_logic; 
+          REVERSE  : out   std_logic; 
           seg      : out   std_logic_vector (6 downto 0); 
+          SPEEDBUS : out   unsigned (11 downto 0); 
+          VOL      : out   unsigned (7 downto 0); 
+          VOL_L_O  : out   std_logic_vector (11 downto 0); 
+          VOL_R_O  : out   std_logic_vector (11 downto 0); 
           MemDB    : inout std_logic_vector (15 downto 0));
 end TOP_ENTITY;
 
 architecture BEHAVIORAL of TOP_ENTITY is
-   signal XLXN_1        : std_logic_vector (4 downto 0);
-   signal XLXN_2        : std_logic_vector (4 downto 0);
-   signal XLXN_3        : std_logic_vector (4 downto 0);
-   signal XLXN_4        : std_logic_vector (4 downto 0);
-   signal XLXN_6        : std_logic_vector (3 downto 0);
-   signal XLXN_15       : std_logic_vector (4 downto 0);
-   signal XLXN_16       : std_logic_vector (11 downto 0);
-   signal XLXN_17       : std_logic_vector (11 downto 0);
-   signal XLXN_21       : std_logic;
-   signal XLXN_22       : std_logic;
-   signal XLXN_23       : std_logic_vector (11 downto 0);
-   signal XLXN_24       : std_logic_vector (11 downto 0);
-   signal XLXN_25       : std_logic_vector (11 downto 0);
-   signal XLXN_26       : std_logic_vector (11 downto 0);
-   signal XLXN_27       : std_logic;
-   signal CLK_48_DUMMY  : std_logic;
-   signal DABUS_L_DUMMY : std_logic_vector (11 downto 0);
-   signal DABUS_R_DUMMY : std_logic_vector (11 downto 0);
-   signal clk_400_DUMMY : std_logic;
+   signal DABUS_L        : std_logic_vector (11 downto 0);
+   signal DABUS_R        : std_logic_vector (11 downto 0);
+   signal XLXN_1         : std_logic_vector (4 downto 0);
+   signal XLXN_2         : std_logic_vector (4 downto 0);
+   signal XLXN_3         : std_logic_vector (4 downto 0);
+   signal XLXN_4         : std_logic_vector (4 downto 0);
+   signal XLXN_6         : std_logic_vector (3 downto 0);
+   signal XLXN_15        : std_logic_vector (4 downto 0);
+   signal XLXN_16        : std_logic_vector (11 downto 0);
+   signal XLXN_17        : std_logic_vector (11 downto 0);
+   signal XLXN_21        : std_logic;
+   signal XLXN_22        : std_logic;
+   signal XLXN_23        : std_logic_vector (11 downto 0);
+   signal XLXN_24        : std_logic_vector (11 downto 0);
+   signal XLXN_25        : std_logic_vector (11 downto 0);
+   signal XLXN_26        : std_logic_vector (11 downto 0);
+   signal REVERSE_DUMMY  : std_logic;
+   signal CLK_48_DUMMY   : std_logic;
+   signal SPEEDBUS_DUMMY : unsigned (11 downto 0);
+   signal VOL_R_O_DUMMY  : std_logic_vector (11 downto 0);
+   signal VOL_DUMMY      : unsigned (7 downto 0);
+   signal clk_400_DUMMY  : std_logic;
+   signal VOL_L_O_DUMMY  : std_logic_vector (11 downto 0);
    component CONTROL_UNIT
       port ( CLK_I      : in    std_logic; 
              RESET_I    : in    std_logic; 
@@ -93,13 +100,16 @@ architecture BEHAVIORAL of TOP_ENTITY is
              DPS_O      : out   std_logic_vector (3 downto 0); 
              DABUS_L_I  : out   std_logic_vector (11 downto 0); 
              DABUS_R_I  : out   std_logic_vector (11 downto 0); 
+             SPEED_O    : out   unsigned (11 downto 0); 
              MEMBUS_L_O : out   std_logic_vector (11 downto 0); 
-             MEMBUS_R_O : out   std_logic_vector (11 downto 0));
+             MEMBUS_R_O : out   std_logic_vector (11 downto 0); 
+             VOL_O      : out   unsigned (7 downto 0));
    end component;
    
    component FREQ_DIVIDER
       port ( CLK_I     : in    std_logic; 
              RESET_I   : in    std_logic; 
+             SPEED     : in    unsigned (11 downto 0); 
              CLK_400_O : out   std_logic; 
              CLK_48_O  : out   std_logic);
    end component;
@@ -164,11 +174,23 @@ architecture BEHAVIORAL of TOP_ENTITY is
              REVERSE          : in    std_logic);
    end component;
    
+   component VOLUME_CNT
+      port ( CLK_48   : in    std_logic; 
+             VOL      : in    unsigned (7 downto 0); 
+             DATA_L   : in    std_logic_vector (11 downto 0); 
+             DATA_R   : in    std_logic_vector (11 downto 0); 
+             DATA_R_O : out   std_logic_vector (11 downto 0); 
+             DATA_L_O : out   std_logic_vector (11 downto 0));
+   end component;
+   
 begin
    CLK_48 <= CLK_48_DUMMY;
    clk_400 <= clk_400_DUMMY;
-   DABUS_L(11 downto 0) <= DABUS_L_DUMMY(11 downto 0);
-   DABUS_R(11 downto 0) <= DABUS_R_DUMMY(11 downto 0);
+   REVERSE <= REVERSE_DUMMY;
+   SPEEDBUS(11 downto 0) <= SPEEDBUS_DUMMY(11 downto 0);
+   VOL(7 downto 0) <= VOL_DUMMY(7 downto 0);
+   VOL_L_O(11 downto 0) <= VOL_L_O_DUMMY(11 downto 0);
+   VOL_R_O(11 downto 0) <= VOL_R_O_DUMMY(11 downto 0);
    XLXI_1 : CONTROL_UNIT
       port map (ADBUS_L_I(11 downto 0)=>XLXN_16(11 downto 0),
                 ADBUS_R_I(11 downto 0)=>XLXN_17(11 downto 0),
@@ -181,19 +203,22 @@ begin
                 BCD_02_O(4 downto 0)=>XLXN_2(4 downto 0),
                 BCD_03_O(4 downto 0)=>XLXN_3(4 downto 0),
                 BCD_04_O(4 downto 0)=>XLXN_4(4 downto 0),
-                DABUS_L_I(11 downto 0)=>DABUS_L_DUMMY(11 downto 0),
-                DABUS_R_I(11 downto 0)=>DABUS_R_DUMMY(11 downto 0),
+                DABUS_L_I(11 downto 0)=>DABUS_L(11 downto 0),
+                DABUS_R_I(11 downto 0)=>DABUS_R(11 downto 0),
                 DPS_O(3 downto 0)=>XLXN_6(3 downto 0),
                 LED_O(7 downto 0)=>Led(7 downto 0),
                 MEMBUS_L_O(11 downto 0)=>XLXN_23(11 downto 0),
                 MEMBUS_R_O(11 downto 0)=>XLXN_24(11 downto 0),
                 PLAY_O=>XLXN_21,
                 REC_O=>XLXN_22,
-                REVERSE_O=>XLXN_27);
+                REVERSE_O=>REVERSE_DUMMY,
+                SPEED_O(11 downto 0)=>SPEEDBUS_DUMMY(11 downto 0),
+                VOL_O(7 downto 0)=>VOL_DUMMY(7 downto 0));
    
    XLXI_2 : FREQ_DIVIDER
       port map (CLK_I=>clk_I,
                 RESET_I=>Reset,
+                SPEED(11 downto 0)=>SPEEDBUS_DUMMY(11 downto 0),
                 CLK_48_O=>CLK_48_DUMMY,
                 CLK_400_O=>clk_400_DUMMY);
    
@@ -222,8 +247,8 @@ begin
                 ADDATA_R_I=>addata_r,
                 CLK_I=>clk_I,
                 CLK_48_I=>CLK_48_DUMMY,
-                DA_BUS_L_O(11 downto 0)=>DABUS_L_DUMMY(11 downto 0),
-                DA_BUS_R_O(11 downto 0)=>DABUS_R_DUMMY(11 downto 0),
+                DA_BUS_L_O(11 downto 0)=>VOL_L_O_DUMMY(11 downto 0),
+                DA_BUS_R_O(11 downto 0)=>VOL_R_O_DUMMY(11 downto 0),
                 RESET_I=>Reset,
                 ADCLK_O=>adclk,
                 ADCS_O=>adcs,
@@ -242,7 +267,7 @@ begin
                 PLAY=>XLXN_21,
                 REC=>XLXN_22,
                 RESET_I=>Reset,
-                REVERSE=>XLXN_27,
+                REVERSE=>REVERSE_DUMMY,
                 ADDRESS_O(22 downto 0)=>MemAdr(22 downto 0),
                 CE_O=>RamCS,
                 DATA_O_CONTROL_L(11 downto 0)=>XLXN_26(11 downto 0),
@@ -252,6 +277,14 @@ begin
                 UB_O=>RamUB,
                 WE_O=>MemWR,
                 DATA_O_RAM(15 downto 0)=>MemDB(15 downto 0));
+   
+   XLXI_7 : VOLUME_CNT
+      port map (CLK_48=>CLK_48_DUMMY,
+                DATA_L(11 downto 0)=>DABUS_L(11 downto 0),
+                DATA_R(11 downto 0)=>DABUS_R(11 downto 0),
+                VOL(7 downto 0)=>VOL_DUMMY(7 downto 0),
+                DATA_L_O(11 downto 0)=>VOL_L_O_DUMMY(11 downto 0),
+                DATA_R_O(11 downto 0)=>VOL_R_O_DUMMY(11 downto 0));
    
 end BEHAVIORAL;
 

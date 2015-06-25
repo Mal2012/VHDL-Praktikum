@@ -5,6 +5,7 @@ use ieee.numeric_std.all;
 entity FREQ_DIVIDER is
 	port(CLK_I : in std_logic;
 		 RESET_I : in std_logic;
+		 SPEED : in unsigned(11 downto 0);
 		 CLK_400_O : out std_logic;
 		 CLK_48_O : out std_logic
 		 );
@@ -29,7 +30,7 @@ architecture FREQ_DIVIDER_BEHAVE of FREQ_DIVIDER is
 			else
 				INT_48 <= '0';
 				INT_COUNT_48 <= INT_COUNT_48 + 1; -- Zähler bis 2082
-				if(INT_COUNT_48 = 2082) then 		-- benutze zahl, statt "zahl" wegen Eigenschaften d. std_logic und numeric_std Bibliotheken
+				if(INT_COUNT_48 = SPEED) then 		-- benutze zahl, statt "zahl" wegen Eigenschaften d. std_logic und numeric_std Bibliotheken
 					INT_COUNT_48 <= (others => '0'); -- Zähler überlauf bei 2082 und Ausgabe von 1 für einen Takt auf INT_48
 					INT_48 <= '1';
 				end if;

@@ -96,16 +96,17 @@ PROC_STATE_MACHINE : process(CLK_I)
 							CURRENT_STATE <= WAIT_WRITE;
 						end if;
 					
-						if PLAY = '1' AND REC = '0' AND CLK_48 = '1' and REVERSE = '0' then
+						if PLAY = '1' AND REC = '0' AND CLK_48 = '1' AND REVERSE = '0' then
 							WE_I <= '1';
 	 						CURRENT_STATE <= READ_RAM;
 						end if;
 					
 					
-						if REVERSE = '1' AND PLAY = '0' AND REC = '0' AND CLK_48 = '1' then
+						if REVERSE = '1' AND PLAY = '0'  AND REC = '0' AND CLK_48 = '1' then
 							WE_I <= '1';
 							ADDRESS_R_I <= ADDRESS_I;
 							CURRENT_STATE <= REVERSE_WAIT;
+							
 						end if;
 					
 				   when WAIT_WRITE => 
@@ -148,6 +149,7 @@ PROC_STATE_MACHINE : process(CLK_I)
 								WCOUNT <= (others => '0');
 								CURRENT_STATE <= WAIT_WRITE;
 							end if;
+							
 					when REVERSE_WAIT =>
 						if CLK_48 = '1' then
 							CURRENT_STATE <= READ_RAM;
@@ -194,8 +196,11 @@ PROC_STATE_MACHINE : process(CLK_I)
 							
 							if (WCOUNT_R = 19) then
 								WCOUNT_R <= (others => '0');
-								
+								if REVERSE = '1' then
 								CURRENT_STATE <= REVERSE_WAIT;
+								else
+								CURRENT_STATE <= IDLE;
+								end if;
 							end if;
 					
 			end case;

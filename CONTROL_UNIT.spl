@@ -18,6 +18,8 @@ REVERSE_O
 =DPS_O[3:0]=
 =DABUS_L_I[11:0]=
 =DABUS_R_I[11:0]=
+=SPEED_O[11:0]=
+=VOL_O[7:0]=
 =MEMBUS_L_O[11:0]=
 =MEMBUS_R_O[11:0]=
 [BiDir]

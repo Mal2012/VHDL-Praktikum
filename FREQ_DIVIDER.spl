@@ -1,6 +1,7 @@
 [Inputs]
 CLK_I
 RESET_I
+=SPEED[11:0]=
 [Outputs]
 CLK_400_O
 CLK_48_O

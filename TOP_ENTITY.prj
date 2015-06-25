@@ -1,3 +1,4 @@
+vhdl work "VOLUME_CNT.vhd"
 vhdl work "SEV_SEG_MUX.vhd"
 vhdl work "MEMORY.vhd"
 vhdl work "FREQ_DIVIDER.vhd"

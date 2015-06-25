@@ -26,3 +26,11 @@ vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -modu
 spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 
 vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -module CONTROL_UNIT -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
 spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 
+vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -module CONTROL_UNIT -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 
+vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -module CONTROL_UNIT -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 
+vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -module CONTROL_UNIT -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 
+vhdtdtfi -lib work CONTROL_UNIT.vhd -prj HDL_Praktikum -o CONTROL_UNIT.spl -module CONTROL_UNIT -template C:/Xilinx/14.4/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 CONTROL_UNIT.spl E:/Namislo_Koegler/CONTROL_UNIT.sym 

@@ -266,3 +266,131 @@ map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -re
 par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
 bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
+xst -intstyle ise -ifn "E:/Namislo_Koegler/TOP_ENTITY.xst" -ofn "E:/Namislo_Koegler/TOP_ENTITY.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Nexys3_Master.ucf -p xc6slx16-csg324-2 TOP_ENTITY.ngc TOP_ENTITY.ngd  
+map -intstyle ise -p xc6slx16-csg324-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o TOP_ENTITY_map.ncd TOP_ENTITY.ngd TOP_ENTITY.pcf 
+par -w -intstyle ise -ol high -mt off TOP_ENTITY_map.ncd TOP_ENTITY.ncd TOP_ENTITY.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml TOP_ENTITY.twx TOP_ENTITY.ncd -o TOP_ENTITY.twr TOP_ENTITY.pcf -ucf Nexys3_Master.ucf 
+bitgen -intstyle ise -f TOP_ENTITY.ut TOP_ENTITY.ncd 
